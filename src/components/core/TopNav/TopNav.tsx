@@ -47,8 +47,6 @@ const items = [
 ];
 export const TopNav = () => {
     const { pathname } = useLocation();
-    console.log(location.pathname);
-
     return (
         <Container>
             {items.map(({ key, label, url }) => (
