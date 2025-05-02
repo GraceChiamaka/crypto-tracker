@@ -4,6 +4,7 @@ import styled from "styled-components";
 type IButtonProps = {
     children: string | ReactNode;
     variant: "default" | "secondary";
+    onClick?: () => void;
 };
 
 const StyledButton = styled.button<{ variant: IButtonProps["variant"] }>`
