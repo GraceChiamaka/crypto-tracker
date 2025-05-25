@@ -177,5 +177,8 @@ const border = {
     input: customBorder("1px", colors.neutral.grey[300]),
     activeInput: customBorder("1px", colors.neutral.grey[100]),
 };
+const shadows = {
+    inputs: "rgba(13, 94, 186, 0.2)",
+};
 
-export { colors, media, fontSize, fontFamily, borderRadius, spacing, border, fontWeights };
+export { colors, media, fontSize, fontFamily, borderRadius, spacing, border, fontWeights, shadows };

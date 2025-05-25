@@ -34,7 +34,7 @@ export const Nav = () => {
                 <Logo>Crypto Tracker</Logo>
             </Link>
             <NavRight>
-                <CustomInput />
+                <CustomInput type={"text"} />
                 <CustomButton variant={"secondary"}>Watchlist</CustomButton>
                 <CustomButton variant={"default"}>Login</CustomButton>
             </NavRight>

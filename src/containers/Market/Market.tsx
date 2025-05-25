@@ -8,13 +8,6 @@ import { watchlistActions } from "../../store/slices/watchlistSlice";
 import styled from "styled-components";
 import { RootState } from "../../store";
 
-const Content = styled.div`
-    background: ${({ theme }) => theme.colors.white};
-    padding: ${({ theme }) => theme.spacing.double(2.5, 7)};
-    height: 100vh;
-    font-family: "DM Mono", sans-serif;
-`;
-
 const CoinName = styled.p<{ type: "header" | "sub" }>`
     display: block;
     color: ${({ theme, type }) => (type === "sub" ? theme.colors.neutral.grey[400] : theme.colors.black[400])};
@@ -107,9 +100,7 @@ export const Home = () => {
 
     return (
         <Layout>
-            <Content>
-                <Table dataSource={data} columns={columns} loading={isLoading} />
-            </Content>
+            <Table dataSource={data} columns={columns} loading={isLoading} />
         </Layout>
     );
 };
