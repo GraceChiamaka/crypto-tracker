@@ -1,5 +1,15 @@
 import { DefaultTheme } from "styled-components";
-import { colors, fontFamily, borderRadius, border, media, spacing, fontSize, fontWeights } from "./declarations";
+import {
+    colors,
+    fontFamily,
+    borderRadius,
+    border,
+    media,
+    spacing,
+    fontSize,
+    fontWeights,
+    shadows,
+} from "./declarations";
 
 const theme: DefaultTheme = {
     colors,
@@ -10,6 +20,7 @@ const theme: DefaultTheme = {
     spacing,
     border,
     fontWeights,
+    shadows,
 };
 
 export default theme;

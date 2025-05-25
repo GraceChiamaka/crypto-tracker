@@ -15,9 +15,9 @@ type ColorsTheme = {
         // 900: string;
     };
 
-    secondary: {
-        50: string;
-    };
+    // secondary: {
+    //     50: string;
+    // };
     neutral: {
         grey: {
             /** "#F9FAFB"; **/
@@ -53,9 +53,7 @@ type ColorsTheme = {
             /* 900: "#101928"; */
             900: string;
         };
-        gray: {
-            100: string;
-        };
+
         brown: {
             50: string;
             75: string;
@@ -78,7 +76,10 @@ type ColorsTheme = {
         200: string;
     };
     white: string;
-    black: string;
+    black: {
+        100: string;
+        200: string;
+    };
     blue: {
         50: string;
         100: string;
@@ -144,6 +145,10 @@ export type FontWeights = {
     [key in TextWeights]: number;
 };
 
+type Shadows = {
+    inputs: string;
+};
+
 declare module "styled-components" {
     export interface DefaultTheme {
         colors: ColorsTheme;
@@ -154,5 +159,6 @@ declare module "styled-components" {
         borderRadius;
         border;
         fontWeights: FontWeights;
+        shadows: Shadows;
     }
 }

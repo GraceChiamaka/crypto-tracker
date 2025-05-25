@@ -24,9 +24,10 @@ export const AntThemeProvider = ({ children }: { children: React.ReactNode }): J
                             cellPaddingBlockMD: 16,
                         },
                         Select: {
-                            // optionActiveBg: theme.colors.primary[75],
-                            // optionSelectedBg: theme.colors.primary[75],
-                            optionSelectedColor: theme.colors.white,
+                            optionActiveBg: theme.colors.blue[200],
+                            optionSelectedBg: theme.colors.blue[300],
+                            optionSelectedColor: theme.colors.black[100],
+                            boxShadow: theme.colors.blue[100],
                         },
                         Spin: {
                             dotSizeLG: 32,
