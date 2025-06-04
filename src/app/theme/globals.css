@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Bio;
+    src: url("../fonts/biorhyme/BioRhyme-Regular.ttf");
+}
+@font-face {
+    font-family: BioMd;
+    src: url("../fonts/biorhyme/BioRhyme-Medium.ttf");
+}
+@font-face {
+    font-family: BioSM;
+    src: url("../fonts/biorhyme/BioRhyme-SemiBold.ttf");
+}
+@font-face {
+    font-family: BioBold;
+    src: url("../fonts/biorhyme/BioRhyme-Bold.ttf");
+}
+@font-face {
+    font-family: DMSans;
+    src: url("../fonts/dmsans/DMSans-Regular.ttf");
+}
+@font-face {
+    font-family: DMSansMedium;
+    src: url("../fonts/dmsans/DMSans-Medium.ttf");
+}
+@font-face {
+    font-family: DMSansSemiBold;
+    src: url("../fonts/dmsans/DMSans-SemiBold.ttf");
+}
+@font-face {
+    font-family: DMSansBold;
+    src: url("../fonts/dmsans/DMSans-Bold.ttf");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+}
+
+body {
+    background: #fef8e6;
+    color: #0c0a01;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "DMSans", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
