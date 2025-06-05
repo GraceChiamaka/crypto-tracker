@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { MantineThemeProvider } from "@mantine/core";
 import { StoreProvider } from "@store/index";
-import { theme } from "@theme/index";
-import "@mantine/core/styles/global.css";
+import { AntThemeProvider, GlobalStyle } from "@theme/index";
 import "@theme/globals.css";
 
 export const metadata: Metadata = {
@@ -16,12 +14,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <MantineThemeProvider inherit theme={theme}>
+        <AntThemeProvider>
+            <GlobalStyle />
             <StoreProvider>
                 <html lang="en">
                     <body>{children}</body>
                 </html>
             </StoreProvider>
-        </MantineThemeProvider>
+        </AntThemeProvider>
     );
 }

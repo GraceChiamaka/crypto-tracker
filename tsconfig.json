@@ -21,6 +21,7 @@
       }
     ],
     "paths": {
+      "@assets/*": ["./src/app/assets/*"],
       "@components/*": ["./src/app/components/*"],
       "@src/*": ["./src/*"],
       "@store/*": ["./src/app/store/*"],
