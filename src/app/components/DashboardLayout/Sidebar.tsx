@@ -63,7 +63,7 @@ export const Sidebar = () => {
                 {MenuList.map(({ key, label, url, icon: Icon }) => {
                     const isActive = pathname === url;
                     return (
-                        <Link key={key} href={"/dashboard"}>
+                        <Link key={key} href={url}>
                             <SidebarMenuItem $active={isActive}>
                                 <Icon color={isActive ? theme.colors.primary : theme.colors.muted} />
                                 {!isCollapsed && label}
