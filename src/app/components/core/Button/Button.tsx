@@ -16,8 +16,7 @@ const StyledButton = styled.button<{ outline?: boolean | string; variant: Button
     width: 100%;
     height: ${({ theme }) => theme.spacing.custom(2.75)};
     padding: ${({ theme }) => theme.spacing.double(0, 1.5)};
-    background: ${({ theme, variant }) =>
-        variant === "default" ? theme.colors.yellow[200] : theme.colors.neutral[200]};
+    background: ${({ theme, variant }) => theme.colors.background};
     border: ${({ theme, outline }) => (outline === "true" ? theme.border.buttonBlack : "none")};
     font-family: ${({ theme }) => theme.fontFamily.medium};
     font-size: ${({ theme }) => theme.fontSize.medium};
@@ -37,7 +36,7 @@ const StyledButton = styled.button<{ outline?: boolean | string; variant: Button
         pointer-events: none;
         content: "";
         position: absolute;
-        border: ${({ theme }) => theme.border.custom("2px", theme.colors.neutral[800])};
+        border: ${({ theme }) => theme.border};
         top: -16px;
         right: -16px;
         bottom: -16px;
@@ -67,7 +66,7 @@ const StyledButton = styled.button<{ outline?: boolean | string; variant: Button
 const StyledLinkButton = styled.button<{ variant: "link" | "linkSecondary" }>`
     height: ${({ theme }) => theme.spacing.custom(2.75)};
     padding: ${({ theme }) => theme.spacing.double(0, 1.5)};
-    background: ${({ theme, variant }) => (variant === "link" ? theme.colors.yellow[100] : theme.colors.neutral[200])};
+    background: ${({ theme, variant }) => theme.colors.background};
     border: none;
     font-family: ${({ theme }) => theme.fontFamily.medium};
     font-size: ${({ theme }) => theme.fontSize.normal};

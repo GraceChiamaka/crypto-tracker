@@ -1,10 +1,10 @@
 import { Col, Row } from "antd";
 import { Button, Text } from "@components/core";
 import styled from "styled-components";
-import { theme } from "@src/app/theme";
+import { lightTheme } from "@src/app/theme";
 
 const Container = styled.div`
-    background: ${theme.colorScheme.scheme5.background};
+    background: ${({ theme }) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 3)};
@@ -18,17 +18,18 @@ const Container = styled.div`
 `;
 
 export const CTA = () => {
+	const theme = lightTheme;
     return (
         <Container data-container={"CTA"}>
             <Row justify={"center"}>
                 <Col xs={24} lg={16} xxl={14}>
-                    <Text align="center" variant={"heading2"} font={"bio"} color={theme.colors.neutral[100]} block>
+                    <Text align="center" variant={"heading2"} font={"bio"} color={theme.colors.background} block>
                         Stay Ahead in Crypto Trading
                     </Text>
                     <Text
                         align="center"
                         variant={"body3"}
-                        color={theme.colors.neutral[100]}
+                        color={theme.colors.background}
                         style={{ margin: "1.5rem 0 2rem 0" }}
                         block
                     >

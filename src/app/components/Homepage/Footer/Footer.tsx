@@ -4,13 +4,13 @@ import { Svg } from "@assets/svg";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { theme } from "@src/app/theme";
+import { lightTheme } from "@src/app/theme";
 
 const { Facebook, Instagram, LinkedIn, Twitter, LogoWhite } = Svg;
 
 const Container = styled.footer`
-    background: ${({ theme }) => theme.colors.neutral[800]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.primary};
     padding: ${({ theme }) => theme.spacing.custom(5)};
     ${({ theme }) => theme.media.mobile} {
         padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
@@ -39,14 +39,14 @@ const FooterContainer = styled.div`
 const FooterHeading = styled.p`
     font-weight: 600;
     font-family: ${({ theme }) => theme.fontFamily.semibold};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    color: ${({ theme }) => theme.colors.text};
     margin-bottom: ${({ theme }) => theme.spacing.normal};
     font-size: ${({ theme }) => theme.fontSize.normal};
 `;
 const FooterList = styled.ul`
     list-style: none;
     li {
-        color: ${({ theme }) => theme.colors.neutral[100]};
+        color: ${({ theme }) => theme.colors.text};
         font-family: ${({ theme }) => theme.fontFamily.regular};
         padding: ${({ theme }) => theme.spacing.double(0.5, 0)};
         font-size: ${({ theme }) => theme.fontSize.small};
@@ -57,6 +57,7 @@ const FooterList = styled.ul`
 `;
 
 export const Footer = () => {
+    const theme = lightTheme;
     return (
         <Container data-container={"footer"}>
             <Row justify={"space-between"} style={{ marginBottom: "1.5rem" }}>
@@ -100,7 +101,7 @@ export const Footer = () => {
                 </Col>
                 <Col xs={24} lg={8} xxl={6}>
                     <FooterHeading>Subscribe</FooterHeading>
-                    <Text variant="body4" color={theme.colors.neutral[100]} block>
+                    <Text variant="body4" color={theme.colors.text} block>
                         Join our newsletter for the latest updates and features.
                     </Text>
                     <Row gutter={{ lg: 12 }}>
@@ -111,7 +112,7 @@ export const Footer = () => {
                             <Button variant="secondary">Join</Button>
                         </Col>
                     </Row>
-                    <Text variant="body5" color={theme.colors.neutral[100]} block>
+                    <Text variant="body5" color={theme.colors.text} block>
                         By subscribing, you agree to our Privacy Policy and consent to updates.
                     </Text>
                 </Col>
@@ -121,23 +122,23 @@ export const Footer = () => {
                     <Col xs={24} lg={18} xxl={14}>
                         <Row justify={"space-between"}>
                             <Col xs={24} lg={10} xxl={8}>
-                                <Text variant={"body4"} color={theme.colors.neutral[100]}>
+                                <Text variant={"body4"} color={theme.colors.text}>
                                     &copy;2025 cyphyr. All rights reserved.{" "}
                                 </Text>
                             </Col>
                             <FooterLinksContainer>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.neutral[100]}>
+                                    <Text variant={"body4"} color={theme.colors.text}>
                                         Privacy Policy
                                     </Text>
                                 </Link>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.neutral[100]}>
+                                    <Text variant={"body4"} color={theme.colors.text}>
                                         Terms of service
                                     </Text>
                                 </Link>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.neutral[100]}>
+                                    <Text variant={"body4"} color={theme.colors.text}>
                                         Cookie Settings
                                     </Text>
                                 </Link>

@@ -77,7 +77,7 @@ export const NavButtons = styled.div<{ show: boolean }>`
 `;
 
 export const NavMenu = styled.div`
-    color: ${({ theme }) => theme.colors.neutral[800]};
+    color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fontFamily.medium};
     font-size: ${({ theme }) => theme.fontSize.normal};
 
@@ -104,7 +104,7 @@ export const MenuButton = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: ${({ theme }) => theme.colors.yellow[100]};
+    background: ${({ theme }) => theme.colors.background};
     display: none;
     ${({ theme }) => theme.media.tablet} {
         display: flex;

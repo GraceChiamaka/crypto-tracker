@@ -6,8 +6,12 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (window !== undefined && document) {
-            document.readyState === "complete" && setLoading(false);
+        if (window !== undefined && document.readyState === "complete") {
+            setLoading(false);
+        } else {
+            const onLoad = () => setLoading(false);
+            window.addEventListener("load", onLoad);
+            return () => window.removeEventListener("load", onLoad);
         }
     }, []);
 

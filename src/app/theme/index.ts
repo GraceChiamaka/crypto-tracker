@@ -1,8 +1,7 @@
 import { DefaultTheme } from "styled-components";
-import { ColorScheme } from "../@types/styled";
+
 import {
     colors,
-    colorScheme,
     border,
     borderRadius,
     fontFamily,
@@ -15,15 +14,28 @@ import {
 export * from "./ThemeProvider.tsx";
 export * from "./globalStyles.ts";
 
-export const theme: ColorScheme & DefaultTheme = {
-    colors,
-    colorScheme,
-    border,
+export const lightTheme: DefaultTheme = {
+    colors: colors.light,
+    border: border.light,
     borderRadius,
-    fontFamily,
     fontSize,
+    fontFamily,
     fontWeights,
+    // shadows: lightShadows,
     media,
-    shadows,
     spacing,
+    mode: "light" as const,
+};
+
+export const darkTheme: DefaultTheme = {
+    colors: colors.dark,
+    border: border.dark,
+    borderRadius,
+    fontSize,
+    fontFamily,
+    fontWeights,
+    // shadows: darkShadows,
+    media,
+    spacing,
+    mode: "dark" as const,
 };

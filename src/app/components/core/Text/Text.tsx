@@ -218,7 +218,7 @@ export const StyledText = styled.span<{
     variant: TextVariants;
     $weight?: Weights;
 }>`
-    color: ${({ theme, color }) => (color ? color : theme.colors.neutral[800])};
+    color: ${({ theme, color }) => (color ? color : theme.colors.text)};
     ${({ variant, theme }) => variantOptions(variant, theme)}
     ${({ $weight, font, theme }) =>
         $weight ? (font === "bio" ? generateFont($weight, theme) : weightOptions($weight, theme)) : null}

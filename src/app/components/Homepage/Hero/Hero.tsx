@@ -9,7 +9,7 @@ import Image from "next/image";
 const { ComputerBG, DashboardIcon, DashboardBG } = Svg;
 
 const HeroContainer = styled.div`
-    background: ${({ theme }) => theme.colors.yellow[100]};
+    background: ${({ theme }) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 2)};
@@ -41,7 +41,7 @@ const HeroBackdrop = styled.div`
 `;
 
 const HeroSection = styled.div`
-    background: ${({ theme }: any) => theme.colorScheme.scheme2.background};
+    background: ${({ theme }: any) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 3)};
