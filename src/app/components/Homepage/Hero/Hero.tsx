@@ -5,13 +5,13 @@ import { Col, Row } from "antd";
 import { Svg } from "@assets/svg";
 import styled from "styled-components";
 import Image from "next/image";
-import { HeroContainer, HeroSection, ButtonRow } from "./style";
+import { HeroContainer, HeroSection, ButtonRow, Backdrop } from "./style";
 const { ComputerBG, DashboardIcon, HeroBackdropDark, HeroBackdropLight } = Svg;
 
 export const Hero = ({ mode = "light" }) => {
     return (
         <>
-            <HeroContainer>
+            <HeroContainer data-component={"Hero"}>
                 <Row justify={"center"}>
                     <Col lg={16} xxl={12}>
                         <Text align="center" variant={"heading1"} font={"bio"}>
@@ -35,12 +35,12 @@ export const Hero = ({ mode = "light" }) => {
                     </Col>
                 </Row>
             </HeroContainer>
-            <HeroSection>
+            <HeroSection data-component={"HeroBottom"}>
                 <Row gutter={{ lg: 12, xxl: 80 }} align={"middle"}>
                     <Col lg={11}>
                         <Image src={DashboardIcon} width={40} height={40} alt="explore icon" />
                         <Text variant={"heading3"} font="bio">
-                            Explore Our Intuitive Dashboard for Real-Time Crypto Tracking
+                            Intuitive Dashboard
                         </Text>
                         <Text variant={"body3"} style={{ marginTop: "1.5rem" }}>
                             Our dashboard provides a seamless experience for monitoring cryptocurrency prices at a
@@ -49,13 +49,7 @@ export const Hero = ({ mode = "light" }) => {
                         </Text>
                     </Col>
                     <Col xs={24} lg={12}>
-                        <Image
-                            src={mode === "light" ? HeroBackdropLight : HeroBackdropDark}
-                            className="backdrop"
-                            width={640}
-                            height={640}
-                            alt=""
-                        />
+                        <Backdrop img={mode === "light" ? HeroBackdropLight : HeroBackdropDark} />
                     </Col>
                 </Row>
             </HeroSection>

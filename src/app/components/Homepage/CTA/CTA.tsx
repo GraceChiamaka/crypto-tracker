@@ -20,15 +20,15 @@ export const CTA = () => {
     return (
         <Container data-container={"CTA"}>
             <Row justify={"center"}>
-                <Col xs={24} lg={16} xxl={14}>
+                <Col xs={24} lg={18} xl={16} xxl={14}>
                     <Text align="center" variant={"heading2"} font={"bio"} block>
-                        Stay Ahead in Crypto Trading
+                        Stay Ahead
                     </Text>
                     <Text align="center" variant={"body3"} style={{ margin: "1.5rem 0 2rem 0" }} block>
                         Join us for real-time updates and alerts to maximize your crypto investment potential.
                     </Text>
                     <Row justify={"center"} style={{ gap: "1.5rem" }}>
-                        <Col>
+                        <Col xs={24} md={6} lg={6}>
                             <Button variant={"default"} outline>
                                 Try for free
                             </Button>

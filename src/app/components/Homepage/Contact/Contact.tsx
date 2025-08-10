@@ -14,23 +14,37 @@ const Container = styled.div`
     ${({ theme }) => theme.media.customDesktop(1600)} {
         padding: ${({ theme }) => theme.spacing.double(7, 12)};
     }
+    ${({ theme }) => theme.media.smallLaptop} {
+        padding: ${({ theme }) => theme.spacing.double(4, 2)};
+    }
     ${({ theme }) => theme.media.tablet} {
         padding: ${({ theme }) => theme.spacing.double(4, 2)};
-        .backdrop {
-            height: auto;
-        }
     }
     ${({ theme }) => theme.media.mobile} {
         padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
-        .backdrop {
-            height: auto;
-        }
     }
 `;
 
 const Card = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
+
+const Backdrop = styled.div`
+    background-image: url(${ContactBg.src});
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 510px;
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        background-size: contain;
+        height: 420px;
+    }
+    ${({ theme }) => theme.media.tablet} {
+        background-position: left;
+        height: 420px;
+    }
+`;
+
 export const Contact = ({ mode = "light" }) => {
     return (
         <Container data-component={"Contact"}>
@@ -96,14 +110,8 @@ export const Contact = ({ mode = "light" }) => {
                         </Text>
                     </Card>
                 </Col>
-                <Col md={12} lg={10}>
-                    <Image
-                        className="backdrop"
-                        src={ContactBg}
-                        height={510}
-                        style={{ width: "100%", transform: "" }}
-                        alt=""
-                    />
+                <Col md={12} lg={10} xl={10} xxl={12}>
+                    <Backdrop />
                 </Col>
             </Row>
         </Container>

@@ -52,3 +52,23 @@ export const ButtonRow = styled.div`
     gap: 1rem;
     margin-top: 1rem;
 `;
+
+export const Backdrop = styled.div<{ img: any }>`
+    background-image: ${({ img }) => `url(${img.src})`};
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 440px;
+
+    ${({ theme }) => theme.media.extraLargeLaptop} {
+        height: 360px;
+    }
+    ${({ theme }) => theme.media.customDesktop(1400)} {
+        height: 434px;
+    }
+    ${({ theme }) => theme.media.tablet} {
+        height: 410px;
+        margin-top: 1rem;
+        background-size: contain;
+    }
+`;

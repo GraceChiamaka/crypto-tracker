@@ -15,6 +15,11 @@ const Container = styled.footer`
     ${({ theme }) => theme.media.customDesktop(1600)} {
         padding: ${({ theme }) => theme.spacing.double(5, 12)};
     }
+
+    ${({ theme }) => theme.media.tablet} {
+        padding: ${({ theme }) => theme.spacing.double(4, 2)};
+    }
+
     ${({ theme }) => theme.media.mobile} {
         padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
         .logo {
@@ -70,16 +75,14 @@ export const Footer = () => {
                         </Col>
                         <Col xs={24} lg={16}>
                             <Row gutter={{ lg: 40 }}>
-                                <Col xs={12} lg={6}>
+                                <Col xs={12} lg={10} xl={6}>
                                     <FooterHeading>Get Started</FooterHeading>
                                     <FooterList>
-                                        <li>About Us</li>
-                                        <li>Contact Us</li>
                                         <li>Support</li>
                                         <li>Blog</li>
                                     </FooterList>
                                 </Col>
-                                <Col xs={12} lg={6}>
+                                <Col xs={12} lg={10} xl={6}>
                                     <FooterHeading>Resources</FooterHeading>
 
                                     <FooterList>
@@ -92,9 +95,6 @@ export const Footer = () => {
                                         <li>
                                             <a href="">Case studies</a>
                                         </li>
-                                        <li>
-                                            <a href="">Testimonials</a>
-                                        </li>
                                     </FooterList>
                                 </Col>
                             </Row>
@@ -106,11 +106,11 @@ export const Footer = () => {
                     <Text variant="body4" block>
                         Join our newsletter for the latest updates and features.
                     </Text>
-                    <Row gutter={{ lg: 12 }}>
-                        <Col xs={24} lg={16} xxl={18}>
+                    <Row gutter={{ lg: 12 }} align={"middle"}>
+                        <Col xs={24} md={10} lg={16} xxl={18}>
                             <CustomInput mode={"dark"} placeholder="Your email" />
                         </Col>
-                        <Col lg={6}>
+                        <Col xs={24} md={5} lg={6}>
                             <Button variant="secondary">Join</Button>
                         </Col>
                     </Row>
