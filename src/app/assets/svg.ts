@@ -7,7 +7,8 @@ import ContactBg4 from "./svg/contact_4.svg";
 import ComputerBG from "./svg/computer_bg.svg";
 import CloseIcon from "./svg/close.svg";
 import DashboardIcon from "./svg/dashboard.svg";
-import DashboardBG from "./svg/dashboard_bg.svg";
+import HeroBackdropLight from "./svg/hero_section_light.svg";
+import HeroBackdropDark from "./svg/hero_section_dark.svg";
 import DashboardBG1 from "./svg/dashboard_1.svg";
 import Facebook from "./svg/facebook.svg";
 import Instagram from "./svg/instagram.svg";
@@ -42,9 +43,10 @@ export const Svg = {
     ContactBg4,
     ComputerBG,
     DashboardIcon,
-    DashboardBG,
     DashboardBG1,
     Facebook,
+    HeroBackdropDark,
+    HeroBackdropLight,
     Instagram,
     LinkedIn,
     LocationIcon,

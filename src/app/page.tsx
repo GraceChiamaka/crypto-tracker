@@ -1,9 +1,13 @@
 "use client";
 import { Nav, Loader } from "@components/core";
+import { Container } from "@components/core/Nav/style";
 import { CTA, Hero, Features, Newsletter, Contact, Footer } from "@components/index";
 import { useEffect, useState } from "react";
+import { useThemeContext } from "@src/app/theme";
+
 export default function Home() {
     const [loading, setLoading] = useState(true);
+    const { mode } = useThemeContext();
 
     useEffect(() => {
         if (window !== undefined && document.readyState === "complete") {
@@ -19,8 +23,8 @@ export default function Home() {
         <Loader fullWidth />
     ) : (
         <div>
-            <Nav />
-            <Hero />
+            <Nav mode={mode} />
+            <Hero mode={mode} />
             <Features />
             <CTA />
             <Newsletter variant={"default"} />

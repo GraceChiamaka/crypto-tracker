@@ -5,76 +5,10 @@ import { Col, Row } from "antd";
 import { Svg } from "@assets/svg";
 import styled from "styled-components";
 import Image from "next/image";
+import { HeroContainer, HeroSection, ButtonRow } from "./style";
+const { ComputerBG, DashboardIcon, HeroBackdropDark, HeroBackdropLight } = Svg;
 
-const { ComputerBG, DashboardIcon, DashboardBG } = Svg;
-
-const HeroContainer = styled.div`
-    background: ${({ theme }) => theme.colors.background};
-    padding: ${({ theme }) => theme.spacing.double(7, 5)};
-    ${({ theme }) => theme.media.smallLaptop} {
-        padding: ${({ theme }) => theme.spacing.double(4, 2)};
-    }
-    ${({ theme }) => theme.media.tablet} {
-        padding: ${({ theme }) => theme.spacing.double(4, 2)};
-    }
-    ${({ theme }) => theme.media.mobile} {
-        padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
-    }
-`;
-
-const HeroBackdrop = styled.div`
-    margin-top: "5rem";
-    display: flex;
-    justify-content: center;
-    ${({ theme }) => theme.media.tablet} {
-        margin-top: 2.5rem;
-        img {
-            height: auto;
-        }
-    }
-    ${({ theme }) => theme.media.mobile} {
-        margin-top: 2.5rem;
-        img {
-            height: auto;
-        }
-    }
-`;
-
-const HeroSection = styled.div`
-    background: ${({ theme }: any) => theme.colors.background};
-    padding: ${({ theme }) => theme.spacing.double(7, 5)};
-    ${({ theme }) => theme.media.smallLaptop} {
-        padding: ${({ theme }) => theme.spacing.double(4, 3)};
-        .backdrop {
-            width: 100%;
-            height: auto;
-        }
-    }
-    ${({ theme }) => theme.media.tablet} {
-        padding: ${({ theme }) => theme.spacing.double(4, 2)};
-        .backdrop {
-            width: 100%;
-            height: auto;
-        }
-    }
-    ${({ theme }) => theme.media.mobile} {
-        padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
-        .backdrop {
-            width: 100%;
-            height: auto;
-        }
-    }
-`;
-
-const ButtonRow = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-`;
-
-export const Hero = () => {
+export const Hero = ({ mode = "light" }) => {
     return (
         <>
             <HeroContainer>
@@ -92,22 +26,14 @@ export const Hero = () => {
                     </Col>
                 </Row>
                 <Row justify={"center"}>
-                    <Col xs={24} md={14} lg={10} xxl={8}>
+                    <Col xs={24} md={6} lg={6} xxl={4}>
                         <ButtonRow>
-                            <Button variant={"default"} outline>
-                                Learn More
-                            </Button>
                             <Button variant={"secondary"} outline>
-                                Sign up
+                                Jump Right In
                             </Button>
                         </ButtonRow>
                     </Col>
                 </Row>
-                <HeroBackdrop>
-                    <Col lg={18}>
-                        <Image src={ComputerBG} style={{ width: "100%" }} alt="crypto price image" />
-                    </Col>
-                </HeroBackdrop>
             </HeroContainer>
             <HeroSection>
                 <Row gutter={{ lg: 12, xxl: 80 }} align={"middle"}>
@@ -123,7 +49,13 @@ export const Hero = () => {
                         </Text>
                     </Col>
                     <Col xs={24} lg={12}>
-                        <Image src={DashboardBG} className="backdrop" width={640} height={640} alt="" />
+                        <Image
+                            src={mode === "light" ? HeroBackdropLight : HeroBackdropDark}
+                            className="backdrop"
+                            width={640}
+                            height={640}
+                            alt=""
+                        />
                     </Col>
                 </Row>
             </HeroSection>

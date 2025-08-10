@@ -13,14 +13,11 @@ import { Dropdown } from "antd";
 import Image from "next/image";
 import { Button } from "../index";
 import { Svg } from "@assets/svg";
-import { useState, useContext } from "react";
-import { useThemeContext } from "@src/app/theme";
-
+import { useState } from "react";
 const { LogoBlack, LogoWhite, CloseIcon, ChevronDown } = Svg;
 
-export const Nav = () => {
+export const Nav = ({ mode = "light" }) => {
     const [showMenu, setShowMenu] = useState(false);
-    const { mode } = useThemeContext();
 
     return (
         <Container data-component={"Navbar"}>
