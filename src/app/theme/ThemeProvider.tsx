@@ -1,19 +1,15 @@
 "use client";
-import { ConfigProvider } from "antd";
+
 import { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import { store } from "../store";
 import { theme } from ".";
 
-export const AntThemeProvider = ({ children }: { children: ReactNode }) => {
+export const StyledThemeProvider = ({ children }: { children: ReactNode }) => {
     return (
         <ThemeProvider theme={theme}>
-            <ConfigProvider
-                theme={{
-                    components: {},
-                }}
-            >
-                {children}
-            </ConfigProvider>
+            <Provider store={store}>{children}</Provider>
         </ThemeProvider>
     );
 };

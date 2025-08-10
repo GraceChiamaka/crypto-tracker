@@ -70,7 +70,7 @@ export const Newsletter = ({ variant = "default" }: { variant: "default" | "news
                 </Container>
             ) : (
                 <Container>
-                    <Row align={"middle"} justify={"space-between"} gutter={48}>
+                    <Row align={"middle"} justify={"space-between"} gutter={{ xl: 48 }}>
                         <Col xs={24} lg={11} xxl={8}>
                             <Text variant="heading3" font="bio" color={theme.colors.neutral[100]}>
                                 Stay Updated with Crypto News

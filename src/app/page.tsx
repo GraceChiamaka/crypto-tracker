@@ -1,8 +1,19 @@
 "use client";
-import { Nav } from "@components/core";
+import { Nav, Loader } from "@components/core";
 import { CTA, Hero, Features, Newsletter, Contact, Footer } from "@components/index";
+import { useEffect, useState } from "react";
 export default function Home() {
-    return (
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (window !== undefined && document) {
+            document.readyState === "complete" && setLoading(false);
+        }
+    }, []);
+
+    return loading ? (
+        <Loader fullWidth />
+    ) : (
         <div>
             <Nav />
             <Hero />

@@ -1,27 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface CounterState {
-    value: number;
+interface UserState {
+    id: string;
+    email: string;
 }
 
-const initialState = { value: 0 } satisfies CounterState as CounterState;
+const initialState: UserState = {
+    id: "",
+    email: "",
+};
 
 const userSlice = createSlice({
-    name: "counter",
+    name: "users",
     initialState,
-    reducers: {
-        increment(state) {
-            state.value++;
-        },
-        decrement(state) {
-            state.value--;
-        },
-        incrementByAmount(state, action: PayloadAction<number>) {
-            state.value += action.payload;
-        },
-    },
+    reducers: {},
 });
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions;
-export const users = userSlice.reducer;
+export const userAction = userSlice.actions;
+export const usersReducer = userSlice.reducer;

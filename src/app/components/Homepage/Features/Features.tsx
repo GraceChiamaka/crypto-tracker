@@ -194,7 +194,7 @@ export const Features = () => {
                             Our portfolio tracking feature allows you to monitor your crypto investments seamlessly.
                             Stay updated with real-time price changes and make informed decisions.
                         </Text>
-                        <Row gutter={24} style={{ marginTop: "2rem" }}>
+                        <Row gutter={{ xxl: 24 }} style={{ marginTop: "2rem" }}>
                             <Col lg={12}>
                                 <Image src={TrackIcon} width={48} height={48} alt={"track icon"} />
                                 <Text variant={"heading6"} color={theme.colors.neutral[100]} font={"bio"} block>
