@@ -11,6 +11,7 @@ type ThemeType = typeof lightTheme | typeof darkTheme;
 type ThemeContextType = {
     theme: ThemeType;
     toggleTheme: (mode: "dark" | "light") => void;
+    mode: "light" | "dark";
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -22,11 +23,14 @@ export const StyledThemeProvider = ({ children }: { children: ReactNode }) => {
         setIsDark(mode === "dark");
     };
     const theme = isDark ? darkTheme : lightTheme;
+
     if (isDark === undefined) return null;
     return (
-        <ThemeProvider theme={theme}>
-            <Provider store={store}>{children}</Provider>
-        </ThemeProvider>
+        <ThemeContext.Provider value={{ mode: isDark ? "dark" : "light", toggleTheme }}>
+            <ThemeProvider theme={theme}>
+                <Provider store={store}>{children}</Provider>
+            </ThemeProvider>
+        </ThemeContext.Provider>
     );
 };
 

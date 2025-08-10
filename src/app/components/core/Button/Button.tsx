@@ -12,15 +12,16 @@ type ButtonProps = PropsWithStyle & {
     onClick?: () => void;
 };
 
-const StyledButton = styled.button<{ outline?: boolean | string; variant: ButtonProps["variant"] }>`
+const StyledButton = styled.button`
     width: 100%;
     height: ${({ theme }) => theme.spacing.custom(2.75)};
     padding: ${({ theme }) => theme.spacing.double(0, 1.5)};
-    background: ${({ theme, variant }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
     border: ${({ theme, outline }) => (outline === "true" ? theme.border.buttonBlack : "none")};
     font-family: ${({ theme }) => theme.fontFamily.medium};
-    font-size: ${({ theme }) => theme.fontSize.medium};
-    border-radius: 0;
+    font-size: ${({ theme }) => theme.fontSize.normal};
+    border-radius: 4px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -37,6 +38,7 @@ const StyledButton = styled.button<{ outline?: boolean | string; variant: Button
         content: "";
         position: absolute;
         border: ${({ theme }) => theme.border};
+        border-radius: 4px;
         top: -16px;
         right: -16px;
         bottom: -16px;
@@ -63,32 +65,7 @@ const StyledButton = styled.button<{ outline?: boolean | string; variant: Button
         }
     }
 `;
-const StyledLinkButton = styled.button<{ variant: "link" | "linkSecondary" }>`
-    height: ${({ theme }) => theme.spacing.custom(2.75)};
-    padding: ${({ theme }) => theme.spacing.double(0, 1.5)};
-    background: ${({ theme, variant }) => theme.colors.background};
-    border: none;
-    font-family: ${({ theme }) => theme.fontFamily.medium};
-    font-size: ${({ theme }) => theme.fontSize.normal};
-    border-radius: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
 
-    &:hover {
-    }
-`;
-
-export const Button = ({ outline, variant, children, ...rest }: ButtonProps) => {
-    return variant === "link" || variant === "linkSecondary" ? (
-        <StyledLinkButton variant={variant} {...rest}>
-            {children}
-        </StyledLinkButton>
-    ) : (
-        <StyledButton variant={variant} outline={outline?.toString() ?? "false"} {...rest}>
-            {children}
-        </StyledButton>
-    );
+export const Button = ({ children, ...rest }: ButtonProps) => {
+    return <StyledButton {...rest}>{children}</StyledButton>;
 };

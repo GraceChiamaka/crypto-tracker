@@ -1,9 +1,12 @@
 import styled from "styled-components";
+
 export const Container = styled.nav`
     padding: ${({ theme }) => theme.spacing.double(1.2, 4)};
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: ${({ theme }) => `0 4px 12px rgba(125, 103, 255, 0.35)`};
+    margin-bottom: 1rem;
     ${({ theme }) => theme.media.tablet} {
         padding: ${({ theme }) => theme.spacing.double(1.2, 2)};
         display: block;
