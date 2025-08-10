@@ -94,6 +94,7 @@ const colors = {
         700: "#493903",
     },
 };
+
 const colorScheme = {
     scheme1: {
         text: colors.neutral[100],

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
     Container,
@@ -38,12 +39,6 @@ export const Nav = () => {
                     <Link href={"/"}>
                         <NavMenu>Portfolio</NavMenu>
                     </Link>
-
-                    <Dropdown trigger={["click"]}>
-                        <NavMenu style={{ display: "flex", alignItems: "center", minWidth: "100px" }}>
-                            More Info <Image src={ChevronDown} alt="dropdown menu icon" />
-                        </NavMenu>
-                    </Dropdown>
                 </NavMenuContainer>
             </FlexContainer>
 

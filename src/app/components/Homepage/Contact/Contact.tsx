@@ -45,7 +45,7 @@ export const Contact = () => {
                 </Col>
             </Row>
 
-            <Row gutter={80}>
+            <Row gutter={{ xxl: 80 }}>
                 <Col xs={{ span: 24, offset: 0 }} md={10} lg={8} offset={2}>
                     <Card>
                         <Image src={MailIcon} width={32} height={32} alt="mail icon" />
