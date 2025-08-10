@@ -1,9 +1,15 @@
 import styled from "styled-components";
+
 export const Container = styled.nav`
-    padding: ${({ theme }) => theme.spacing.double(1.2, 4)};
+    padding: ${({ theme }) => theme.spacing.double(1.2, 8)};
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: ${({ theme }) => `0 4px 12px rgba(125, 103, 255, 0.35)`};
+    margin-bottom: 1rem;
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(1.2, 12)};
+    }
     ${({ theme }) => theme.media.tablet} {
         padding: ${({ theme }) => theme.spacing.double(1.2, 2)};
         display: block;
@@ -77,7 +83,7 @@ export const NavButtons = styled.div<{ show: boolean }>`
 `;
 
 export const NavMenu = styled.div`
-    color: ${({ theme }) => theme.colors.neutral[800]};
+    color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fontFamily.medium};
     font-size: ${({ theme }) => theme.fontSize.normal};
 
@@ -104,7 +110,7 @@ export const MenuButton = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: ${({ theme }) => theme.colors.yellow[100]};
+    background: ${({ theme }) => theme.colors.background};
     display: none;
     ${({ theme }) => theme.media.tablet} {
         display: flex;

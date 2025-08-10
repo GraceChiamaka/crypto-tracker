@@ -1,63 +1,13 @@
 import "styled-components";
 
 type ColorsTheme = {
-    green: {
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-    };
-
-    neutral: {
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-        800: string;
-    };
-
-    yellow: {
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-    };
-    orange: {
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-    };
-};
-
-type ColorSchema = {
-    text: string;
     background: string;
-    foreground: string;
-    border: string;
     accent: string;
-};
-type ColorScheme = {
-    colorScheme: {
-        scheme1: ColorSchema;
-        scheme2: ColorSchema;
-        scheme3: ColorSchema;
-        scheme4: ColorSchema;
-        scheme5: ColorSchema;
-        scheme6: ColorSchema;
-    };
+    accent2: string;
+    text: string;
+    primary: string;
+    secondary: string;
+    muted: string;
 };
 
 type FontSizes = {
@@ -132,11 +82,12 @@ declare module "styled-components" {
         colors: ColorsTheme;
         fontSize: FontSizes;
         fontFamily: FontFamily;
-        shadows: Shadows;
+        // shadows: Shadows;
         spacing: Spacing;
         media: Media;
         borderRadius;
         border;
         fontWeights: FontWeights;
+        mode: "light" | "dark";
     }
 }

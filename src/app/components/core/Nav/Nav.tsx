@@ -14,17 +14,16 @@ import Image from "next/image";
 import { Button } from "../index";
 import { Svg } from "@assets/svg";
 import { useState } from "react";
+const { LogoBlack, LogoWhite, CloseIcon, ChevronDown } = Svg;
 
-const { LogoBlack, CloseIcon, ChevronDown } = Svg;
-
-export const Nav = () => {
+export const Nav = ({ mode = "light" }) => {
     const [showMenu, setShowMenu] = useState(false);
 
     return (
-        <Container className="">
+        <Container data-component={"Navbar"}>
             <FlexContainer>
                 <NavMobileContainer>
-                    <Image src={LogoBlack} width={120} alt={"cyphyr logo"} />
+                    <Image width={180} src={mode === "dark" ? LogoBlack : LogoWhite} alt={"cyphyr logo"} />
                     <MenuButton onClick={() => setShowMenu(!showMenu)}>
                         <Image src={CloseIcon} alt={"close menu icon"} />
                     </MenuButton>
@@ -44,14 +43,7 @@ export const Nav = () => {
 
             <NavButtons show={showMenu}>
                 <Link href={"/auth/login"}>
-                    <Button variant={"secondary"} outline>
-                        Track
-                    </Button>
-                </Link>
-                <Link href={"/auth/signup"}>
-                    <Button variant={"default"} outline>
-                        Login
-                    </Button>
+                    <Button>Get Started</Button>
                 </Link>
             </NavButtons>
         </Container>

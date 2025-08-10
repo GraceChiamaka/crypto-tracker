@@ -1,13 +1,21 @@
 "use client";
 import { Nav, Loader } from "@components/core";
+import { Container } from "@components/core/Nav/style";
 import { CTA, Hero, Features, Newsletter, Contact, Footer } from "@components/index";
 import { useEffect, useState } from "react";
+import { useThemeContext } from "@src/app/theme";
+
 export default function Home() {
     const [loading, setLoading] = useState(true);
+    const { mode } = useThemeContext();
 
     useEffect(() => {
-        if (window !== undefined && document) {
-            document.readyState === "complete" && setLoading(false);
+        if (window !== undefined && document.readyState === "complete") {
+            setLoading(false);
+        } else {
+            const onLoad = () => setLoading(false);
+            window.addEventListener("load", onLoad);
+            return () => window.removeEventListener("load", onLoad);
         }
     }, []);
 
@@ -15,16 +23,12 @@ export default function Home() {
         <Loader fullWidth />
     ) : (
         <div>
-            <Nav />
-            <Hero />
-            <Features />
+            <Nav mode={mode} />
+            <Hero mode={mode} />
+            <Features mode={mode} />
             <CTA />
             <Newsletter variant={"default"} />
-            {/* pricing block */}
-            {/* events */}
-            {/* contact */}
             <Contact />
-            <Newsletter variant="news" />
             <Footer />
         </div>
     );

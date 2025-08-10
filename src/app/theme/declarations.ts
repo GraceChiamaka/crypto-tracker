@@ -1,143 +1,25 @@
 import { Spacing } from "../@types/styled";
 
 const colors = {
-    green: {
-        /* 100: #E8FDEE  */
-        100: "#E8FDEE",
-
-        /* 200: #D1FCDD  */
-        200: "#D1FCDD",
-
-        /* 300: #5EF78A  */
-        300: "#5EF78A",
-
-        /* 400: #19F458  */
-        400: "#19F458",
-
-        /* 500: #14C346  */
-        500: "#14C346",
-
-        /* 600: #0A6123  */
-        600: "#0A6123",
-
-        /* 700: #07491A  */
-        700: "#07491A",
+    light: {
+        background: "#FFFFFF",
+        accent: "#FBFAFF",
+        accent2: "#E5E0FF",
+        primary: "#7D67FF",
+        text: "#352E5B",
+        secondary: "#FFFFFF",
+        muted: "#A5A2B8",
     },
-    neutral: {
-        /*  100: #FFFFFF */
-        100: "#FFFFFF",
-
-        /*  200: #F2F2F2 */
-        200: "#F2F2F2",
-
-        /*  300: #DADAD8 */
-        300: "#DADAD8",
-
-        /*  400: #B6B5B2 */
-        400: "#B6B5B2",
-
-        /*  500: #858480 */
-        500: "#858480",
-
-        /*  600: #54534D */
-        600: "#54534D",
-
-        /*  700: #24221A */
-        700: "#24221A",
-
-        /*  800: #0C0A01 */
-        800: "#0C0A01",
+    dark: {
+        background: "#0B091A",
+        accent: "#131024",
+        accent2: "#1C1833",
+        primary: "#FFFFFF",
+        text: "#E1DFEC",
+        secondary: "#0D0B1C",
+        muted: "#E1DFEC",
     },
-
-    orange: {
-        /* 100: # */
-        100: "#FEEFE7",
-
-        /* 200: #FDE0D0 */
-        200: "#FDE0D0",
-
-        /* 300: #F9945B */
-        300: "#F9945B",
-
-        /* 400: #F76715 */
-        400: "#F76715",
-
-        /* 500: #C55210 */
-        500: "#C55210",
-
-        /* 600: #622908 */
-        600: "#622908",
-
-        /* 700: #4A1E06 */
-        700: "#4A1E06",
-    },
-    yellow: {
-        /* 100: #FEF8E6 */
-        100: "#FEF8E6",
-
-        /* 200: #FDF2CE */
-        200: "#FDF2CE",
-
-        /* 300: #F8D355 */
-        300: "#F8D355",
-
-        /* 400: #F5C10D */
-        400: "#F5C10D",
-
-        /* 500: #C49A0A */
-        500: "#C49A0A",
-
-        /* 600: #624D05 */
-        600: "#624D05",
-
-        /* 700: #493903 */
-        700: "#493903",
-    },
-};
-
-const colorScheme = {
-    scheme1: {
-        text: colors.neutral[100],
-        background: colors.neutral[800],
-        foreground: colors.neutral[800],
-        border: colors.neutral[100],
-        accent: colors.yellow[400],
-    },
-    scheme2: {
-        text: colors.neutral[800],
-        background: colors.yellow[200],
-        foreground: colors.yellow[200],
-        border: colors.neutral[800],
-        accent: colors.neutral[800],
-    },
-    scheme3: {
-        text: colors.neutral[800],
-        background: colors.yellow[100],
-        foreground: colors.yellow[100],
-        border: colors.neutral[800],
-        accent: colors.neutral[800],
-    },
-    scheme4: {
-        text: colors.neutral[100],
-        background: colors.yellow[500],
-        foreground: colors.yellow[500],
-        border: colors.neutral[100],
-        accent: colors.neutral[100],
-    },
-    scheme5: {
-        text: colors.neutral[100],
-        background: colors.yellow[700],
-        foreground: colors.yellow[700],
-        border: colors.neutral[100],
-        accent: colors.yellow[400],
-    },
-    scheme6: {
-        text: colors.neutral[100],
-        background: colors.yellow[700],
-        foreground: colors.yellow[700],
-        border: colors.neutral[100],
-        accent: colors.yellow[400],
-    },
+    white: "#FFFFFF",
 };
 
 /**
@@ -254,8 +136,6 @@ const borderRadius = {
     round: circleRadius,
 };
 
-
-
 const shadows = {
     xxsmall: "0px 1px 2px rgba(0, 0, 0, 0.05)",
     xsmall: " 0px 1px 3px rgba(0, 0, 0, 0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.06)",
@@ -267,11 +147,8 @@ const shadows = {
 };
 
 const border = {
-    custom: customBorder,
-    white: customBorder("1px", colors.neutral[100]),
-    black: customBorder("1px", colors.neutral[800]),
-    buttonWhite: customBorder("2px", colors.neutral[100]),
-    buttonBlack: customBorder("2px", colors.neutral[800]),
+    dark: customBorder("1px", colors.dark.primary),
+    light: customBorder("1px", colors.light.primary),
 };
 
-export { colors, colorScheme, media, fontSize, fontFamily, borderRadius, spacing, shadows, border, fontWeights };
+export { colors, media, fontSize, fontFamily, borderRadius, spacing, shadows, border, fontWeights };

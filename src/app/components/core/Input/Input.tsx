@@ -8,19 +8,19 @@ type IProps = InputProps & {
 const StyledInput = styled(Input)<{ mode: IProps["mode"] }>`
     height: ${({ theme }) => theme.spacing["4xl"]};
     padding: ${({ theme }) => theme.spacing.double(0.5, 0.8)};
-    border: ${({ theme, mode }) => (mode === "dark" ? theme.border.buttonWhite : theme.border.buttonBlack)};
+    border: ${({ theme, mode }) => theme.border};
     border-radius: 0;
     outline: none;
     width: 100%;
     font-family: ${({ theme }) => theme.fontFamily.medium};
-    background: ${({ theme, mode }) => (mode == "dark" ? theme.colors.neutral[800] : theme.colors.neutral[100])};
+    background: ${({ theme, mode }) => theme.colors.background};
     &:hover {
         background: inherit;
-        border-color: ${({ theme }) => theme.colors.yellow[200]};
+        border-color: ${({ theme }) => theme.colors.background};
     }
     &:active,
     &:focus {
-        border-color: ${({ theme }) => theme.colors.yellow[100]};
+        border-color: ${({ theme }) => theme.colors.background};
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
     }
 `;
