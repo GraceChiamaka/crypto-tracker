@@ -40,7 +40,7 @@ const FooterLinksContainer = styled.div`
 `;
 
 const FooterContainer = styled.div`
-    border-top: ${({ theme }) => theme.border.buttonWhite};
+    border-top: ${({ theme }) => theme.border};
     padding-top: ${({ theme }) => theme.spacing.custom(2)};
 `;
 
@@ -111,7 +111,7 @@ export const Footer = () => {
                             <CustomInput mode={"dark"} placeholder="Your email" />
                         </Col>
                         <Col xs={24} md={5} lg={6}>
-                            <Button variant="secondary">Join</Button>
+                            <Button>Join</Button>
                         </Col>
                     </Row>
                     <Text variant="body5" block>

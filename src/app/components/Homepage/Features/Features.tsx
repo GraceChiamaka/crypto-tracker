@@ -1,14 +1,11 @@
 import { Row, Col } from "antd";
-import { Png } from "@assets/png";
 import { Svg } from "@assets/svg";
-import { Button, Text } from "@components/core";
-import Image from "next/image";
+import { Text } from "@components/core";
+import Image, { StaticImageData } from "next/image";
 import styled from "styled-components";
 import { lightTheme } from "@src/app/theme";
 
-const { Placeholder } = Png;
 const {
-    ChevronRight,
     PriceIcon,
     PriceIconDark,
     PriceBG,
@@ -119,7 +116,7 @@ const Backdrop1 = styled.div`
     }
 `;
 
-const Backdrop2 = styled.div<{ img: any }>`
+const Backdrop2 = styled.div<{ img: StaticImageData }>`
     background-image: ${({ img }) => `url(${img.src})`};
     background-repeat: no-repeat;
     background-size: cover;
@@ -162,7 +159,7 @@ const Backdrop3 = styled.div<{ mode: "light" | "dark" }>`
     }
 `;
 
-export const Features = ({ mode }) => {
+export const Features = ({ mode }: { mode: "dark" | "light" }) => {
     const theme = lightTheme;
     return (
         <>
@@ -236,7 +233,7 @@ export const Features = ({ mode }) => {
                                 Effortlessly track your favorite cryptocurrencies.
                             </Text>
                         </Col>
-                        <Col md={24} md={8} lg={8}>
+                        <Col xs={24} md={8} lg={8}>
                             <Backdrop2 img={PriceBG} />
                             <Text align="center" variant={"heading4"} style={{ margin: "1rem 0" }} block>
                                 Price Alerts

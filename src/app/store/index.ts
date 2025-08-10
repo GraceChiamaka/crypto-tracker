@@ -1,7 +1,8 @@
 import { configureStore, Middleware } from "@reduxjs/toolkit";
 import { rootReducer } from "./slices";
 
-const logger: Middleware = () => (next: any) => (action: any) => {
+// ts-ignore
+const logger: Middleware = (store) => (next) => (action: any) => {
     console.group(`[REDUX] ${action.type}`);
     console.log("[Prev State]:", store.getState());
     console.log("Action:", action);

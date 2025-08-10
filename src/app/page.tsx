@@ -1,6 +1,6 @@
 "use client";
 import { Nav, Loader } from "@components/core";
-import { Container } from "@components/core/Nav/style";
+
 import { CTA, Hero, Features, Newsletter, Contact, Footer } from "@components/index";
 import { useEffect, useState } from "react";
 import { useThemeContext } from "@src/app/theme";
@@ -27,7 +27,7 @@ export default function Home() {
             <Hero mode={mode} />
             <Features mode={mode} />
             <CTA />
-            <Newsletter variant={"default"} />
+            <Newsletter />
             <Contact />
             <Footer />
         </div>

@@ -5,7 +5,7 @@ const Container = styled.div<{ $fullWidth: boolean }>`
     align-items: center;
     justify-content: center;
     padding: ${({ theme }) => theme.spacing["2xl"]};
-    height: ${({ theme, $fullWidth }) => ($fullWidth ? "100vh" : "auto")};
+    height: ${({ $fullWidth }) => ($fullWidth ? "100vh" : "auto")};
     background: ${({ theme }) => theme.colors.background};
 `;
 

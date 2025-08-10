@@ -12,21 +12,29 @@ type ThemeContextType = {
     theme: ThemeType;
     toggleTheme: (mode: "dark" | "light") => void;
     mode: "light" | "dark";
+    toggleSidebar: () => void;
+    isCollapsed: boolean;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const StyledThemeProvider = ({ children }: { children: ReactNode }) => {
     const [isDark, setIsDark] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     const toggleTheme = (mode: "dark" | "light") => {
         setIsDark(mode === "dark");
+    };
+    const toggleSidebar = () => {
+        setIsCollapsed(!isCollapsed);
     };
     const theme = isDark ? darkTheme : lightTheme;
 
     if (isDark === undefined) return null;
     return (
-        <ThemeContext.Provider value={{ mode: isDark ? "dark" : "light", toggleTheme }}>
+        <ThemeContext.Provider
+            value={{ theme, mode: isDark ? "dark" : "light", toggleTheme, toggleSidebar, isCollapsed }}
+        >
             <ThemeProvider theme={theme}>
                 <Provider store={store}>{children}</Provider>
             </ThemeProvider>

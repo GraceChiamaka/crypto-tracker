@@ -1,16 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-import {
-    colors,
-    border,
-    borderRadius,
-    fontFamily,
-    fontSize,
-    fontWeights,
-    media,
-    shadows,
-    spacing,
-} from "./declarations.ts";
+import { colors, border, borderRadius, fontFamily, fontSize, fontWeights, media, spacing } from "./declarations.ts";
 export * from "./ThemeProvider.tsx";
 export * from "./globalStyles.ts";
 

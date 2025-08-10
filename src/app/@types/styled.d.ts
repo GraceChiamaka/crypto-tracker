@@ -8,6 +8,9 @@ type ColorsTheme = {
     primary: string;
     secondary: string;
     muted: string;
+    textAccent: string;
+    red: string;
+    green: string;
 };
 
 type FontSizes = {
@@ -85,8 +88,15 @@ declare module "styled-components" {
         // shadows: Shadows;
         spacing: Spacing;
         media: Media;
-        borderRadius;
-        border;
+        borderRadius: {
+            default: string;
+            input: string;
+            button: string;
+            custom: (val: number) => string;
+            round: () => string;
+        };
+        border: string;
+
         fontWeights: FontWeights;
         mode: "light" | "dark";
     }
