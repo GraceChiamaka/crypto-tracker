@@ -25,14 +25,10 @@ export default function Home() {
         <div>
             <Nav mode={mode} />
             <Hero mode={mode} />
-            <Features />
+            <Features mode={mode} />
             <CTA />
             <Newsletter variant={"default"} />
-            {/* pricing block */}
-            {/* events */}
-            {/* contact */}
             <Contact />
-            <Newsletter variant="news" />
             <Footer />
         </div>
     );

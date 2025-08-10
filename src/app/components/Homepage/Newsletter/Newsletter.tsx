@@ -8,9 +8,13 @@ import { lightTheme } from "@src/app/theme";
 const { SubscribeBG1 } = Svg;
 
 const Container = styled.div`
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.accent2};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
     color: ${({ theme }) => theme.colors.text};
+
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(7, 12)};
+    }
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 3)};
         .backdrop {
@@ -38,7 +42,7 @@ export const Newsletter = ({ variant = "default" }: { variant: "default" | "news
     return (
         <>
             {variant === "default" ? (
-                <Container>
+                <Container data-component={"newsletter"}>
                     <Row align={"middle"} gutter={{ xxl: 48 }}>
                         <Col xs={24} md={24} lg={11} xxl={10}>
                             <Text variant="heading3" font="bio" color={theme.colors.text}>

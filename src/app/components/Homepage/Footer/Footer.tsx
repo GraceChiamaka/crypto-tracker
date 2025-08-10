@@ -4,14 +4,17 @@ import { Svg } from "@assets/svg";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { lightTheme } from "@src/app/theme";
 
 const { Facebook, Instagram, LinkedIn, Twitter, LogoWhite } = Svg;
 
 const Container = styled.footer`
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.accent2};
     color: ${({ theme }) => theme.colors.primary};
     padding: ${({ theme }) => theme.spacing.custom(5)};
+
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(5, 12)};
+    }
     ${({ theme }) => theme.media.mobile} {
         padding: ${({ theme }) => theme.spacing.double(4, 1.5)};
         .logo {
@@ -57,9 +60,8 @@ const FooterList = styled.ul`
 `;
 
 export const Footer = () => {
-    const theme = lightTheme;
     return (
-        <Container data-container={"footer"}>
+        <Container data-container={"Footer"}>
             <Row justify={"space-between"} style={{ marginBottom: "1.5rem" }}>
                 <Col xs={24} lg={16} xxl={18}>
                     <Row justify={"space-between"} gutter={40}>
@@ -101,7 +103,7 @@ export const Footer = () => {
                 </Col>
                 <Col xs={24} lg={8} xxl={6}>
                     <FooterHeading>Subscribe</FooterHeading>
-                    <Text variant="body4" color={theme.colors.text} block>
+                    <Text variant="body4" block>
                         Join our newsletter for the latest updates and features.
                     </Text>
                     <Row gutter={{ lg: 12 }}>
@@ -112,7 +114,7 @@ export const Footer = () => {
                             <Button variant="secondary">Join</Button>
                         </Col>
                     </Row>
-                    <Text variant="body5" color={theme.colors.text} block>
+                    <Text variant="body5" block>
                         By subscribing, you agree to our Privacy Policy and consent to updates.
                     </Text>
                 </Col>
@@ -122,25 +124,17 @@ export const Footer = () => {
                     <Col xs={24} lg={18} xxl={14}>
                         <Row justify={"space-between"}>
                             <Col xs={24} lg={10} xxl={8}>
-                                <Text variant={"body4"} color={theme.colors.text}>
-                                    &copy;2025 cyphyr. All rights reserved.{" "}
-                                </Text>
+                                <Text variant={"body4"}>&copy;2025 cyphyr. All rights reserved. </Text>
                             </Col>
                             <FooterLinksContainer>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.text}>
-                                        Privacy Policy
-                                    </Text>
+                                    <Text variant={"body4"}>Privacy Policy</Text>
                                 </Link>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.text}>
-                                        Terms of service
-                                    </Text>
+                                    <Text variant={"body4"}>Terms of service</Text>
                                 </Link>
                                 <Link href={"/"}>
-                                    <Text variant={"body4"} color={theme.colors.text}>
-                                        Cookie Settings
-                                    </Text>
+                                    <Text variant={"body4"}>Cookie Settings</Text>
                                 </Link>
                             </FooterLinksContainer>
                         </Row>

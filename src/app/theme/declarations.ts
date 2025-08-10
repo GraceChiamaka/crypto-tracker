@@ -4,6 +4,7 @@ const colors = {
     light: {
         background: "#FFFFFF",
         accent: "#FBFAFF",
+        accent2: "#E5E0FF",
         primary: "#7D67FF",
         text: "#352E5B",
         secondary: "#FFFFFF",

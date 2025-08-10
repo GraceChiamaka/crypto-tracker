@@ -3,6 +3,7 @@ import "styled-components";
 type ColorsTheme = {
     background: string;
     accent: string;
+    accent2: string;
     text: string;
     primary: string;
     secondary: string;

@@ -7,11 +7,27 @@ import styled from "styled-components";
 import { lightTheme } from "@src/app/theme";
 
 const { Placeholder } = Png;
-const { ChevronRight, PriceIcon, PriceBG, PortfolioBG2, TrackBG, TrackIcon, RealTimeBG, WatchlistBG } = Svg;
+const {
+    ChevronRight,
+    PriceIcon,
+    PriceIconDark,
+    PriceBG,
+    PortfolioBG,
+    TrackBG,
+    TrackBGDark,
+    TrackIcon,
+    TrackIconDark,
+    RealTimeBG,
+    WatchlistBG,
+} = Svg;
 
 const FeaturesContainer = styled.div`
     background: ${({ theme }) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
+
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(4, 12)};
+    }
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 3)};
         .backdrop {
@@ -35,8 +51,12 @@ const FeaturesContainer = styled.div`
     }
 `;
 const FeaturesYellowBG = styled.div`
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.accent};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
+
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(4, 12)};
+    }
     ${({ theme }) => theme.media.smallLaptop} {
         padding: ${({ theme }) => theme.spacing.double(4, 3)};
         .backdrop {
@@ -76,20 +96,20 @@ const FeaturesList = styled.div`
     }
 `;
 
-export const Features = () => {
+export const Features = ({ mode }) => {
     const theme = lightTheme;
     return (
         <>
-            <FeaturesContainer>
+            <FeaturesContainer style={{ background: theme.colors.accent }}>
                 <Row gutter={{ xxl: 80 }} justify={"space-between"} align={"middle"}>
                     <Col xs={{ span: 24, order: 2 }} lg={{ span: 12, order: 1 }}>
                         <Image className="backdrop" src={RealTimeBG} width={640} height={640} alt="" />
                     </Col>
                     <Col xs={{ order: 1, span: 24 }} lg={{ order: 2, span: 11 }}>
-                        <Text variant={"heading3"} font="bio" color={theme.colors.text}>
+                        <Text variant={"heading3"} font="bio">
                             Stay Updated with Real-Time Cryptocurrency Price Tracking at Your Fingertips
                         </Text>
-                        <Text variant={"body3"} style={{ marginTop: "1.5rem" }} color={theme.colors.text}>
+                        <Text variant={"body3"} style={{ marginTop: "1.5rem" }}>
                             Our application offers instant price updates for a wide range of cryptocurrencies, ensuring
                             you never miss a market move. With our user-friendly dashboard, you can effortlessly monitor
                             prices and make informed decisions.
@@ -97,7 +117,7 @@ export const Features = () => {
                     </Col>
                 </Row>
             </FeaturesContainer>
-            <FeaturesContainer>
+            <FeaturesContainer style={{ background: theme.colors.primary }}>
                 <Row justify={"center"}>
                     <Col xs={24} lg={18} xxl={12}>
                         <Text align="center" variant="tagline" color={theme.colors.text} block>
@@ -121,7 +141,7 @@ export const Features = () => {
                 <FeaturesList>
                     <Row gutter={{ lg: 12, xxl: 48 }}>
                         <Col xs={24} md={12} lg={8} xxl={8}>
-                            <Image style={{ width: "100%" }} src={PortfolioBG2} height={230} alt={"feature "} />
+                            <Image style={{ width: "100%" }} src={PortfolioBG} height={230} alt={"feature "} />
                             <Text
                                 align="center"
                                 variant={"heading4"}
@@ -167,24 +187,10 @@ export const Features = () => {
                         </Col>
                     </Row>
                 </FeaturesList>
-                <Row justify={"center"}>
-                    <Col md={12} lg={8}>
-                        <Row justify={"center"} style={{ gap: "1.5rem" }}>
-                            <Col>
-                                <Button variant="secondary">Learn More</Button>
-                            </Col>
-                            <Col>
-                                <Button variant="link" style={{ background: "transparent", color: theme.colors.text }}>
-                                    Sign Up <Image src={ChevronRight} width={24} height={24} alt={"right arrow"} />
-                                </Button>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
             </FeaturesContainer>
             <FeaturesYellowBG>
                 <Row align={"middle"} justify={"center"} gutter={{ xs: 0, lg: 90 }}>
-                    <Col lg={12}>
+                    <Col lg={13}>
                         <Text variant="heading3" color={theme.colors.text} font="bio">
                             Effortlessly track and manage your <br /> cryptocurrency portfolio in real-time.
                         </Text>
@@ -194,7 +200,12 @@ export const Features = () => {
                         </Text>
                         <Row gutter={{ xxl: 24 }} style={{ marginTop: "2rem" }}>
                             <Col lg={12}>
-                                <Image src={TrackIcon} width={48} height={48} alt={"track icon"} />
+                                <Image
+                                    src={mode === "light" ? TrackIcon : TrackIconDark}
+                                    width={48}
+                                    height={48}
+                                    alt={"track icon"}
+                                />
                                 <Text variant={"heading6"} color={theme.colors.text} font={"bio"} block>
                                     Track Assets
                                 </Text>
@@ -204,7 +215,12 @@ export const Features = () => {
                                 </Text>
                             </Col>
                             <Col lg={12}>
-                                <Image src={PriceIcon} width={48} height={48} alt={"track icon"} />
+                                <Image
+                                    src={mode === "light" ? PriceIcon : PriceIconDark}
+                                    width={48}
+                                    height={48}
+                                    alt={"price icon"}
+                                />
                                 <Text variant={"heading6"} color={theme.colors.text} font={"bio"} block>
                                     Stay Informed
                                 </Text>
@@ -214,8 +230,13 @@ export const Features = () => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg={10}>
-                        <Image className="backdrop" style={{ width: "100%" }} src={TrackBG} alt={"track cyrpto "} />
+                    <Col lg={9}>
+                        <Image
+                            className="backdrop"
+                            style={{ width: "100%" }}
+                            src={mode === "light" ? TrackBG : TrackBGDark}
+                            alt={"track cyrpto "}
+                        />
                     </Col>
                 </Row>
             </FeaturesYellowBG>

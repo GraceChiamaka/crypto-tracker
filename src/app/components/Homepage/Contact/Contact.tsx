@@ -1,16 +1,19 @@
 import { Col, Row } from "antd";
 import { Text } from "@components/core";
 import { Svg } from "@assets/svg";
-import { lightTheme } from "@theme/index";
 import styled from "styled-components";
 import Image from "next/image";
 
-const { ContactBg2, MailIcon, LocationIcon, PhoneIcon, ContactBg3, ContactBg, ContactBg4 } = Svg;
+const { MailIcon, LocationIcon, PhoneIcon, MailIconDark, PhoneIconDark, LocationIconDark, ContactBg } = Svg;
 
 const Container = styled.div`
     background: ${({ theme }) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(7, 5)};
     color: ${({ theme }) => theme.colors.background};
+
+    ${({ theme }) => theme.media.customDesktop(1600)} {
+        padding: ${({ theme }) => theme.spacing.double(7, 12)};
+    }
     ${({ theme }) => theme.media.tablet} {
         padding: ${({ theme }) => theme.spacing.double(4, 2)};
         .backdrop {
@@ -28,19 +31,18 @@ const Container = styled.div`
 const Card = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
-export const Contact = () => {
-    const theme = lightTheme;
+export const Contact = ({ mode = "light" }) => {
     return (
-        <Container>
+        <Container data-component={"Contact"}>
             <Row>
                 <Col xs={{ span: 24, offset: 0 }} lg={14} offset={2}>
-                    <Text variant={"tagline"} color={theme.colors.primary} block>
+                    <Text variant={"tagline"} block>
                         Connect
                     </Text>
-                    <Text variant={"heading2"} color={theme.colors.primary} block>
+                    <Text variant={"heading2"} block>
                         Get in Touch
                     </Text>
-                    <Text variant={"body4"} color={theme.colors.primary} style={{ marginBottom: "5rem" }}>
+                    <Text variant={"body4"} style={{ marginBottom: "5rem" }}>
                         We're here to assist you with any queries.
                     </Text>
                 </Col>
@@ -49,32 +51,47 @@ export const Contact = () => {
             <Row gutter={{ xxl: 80 }}>
                 <Col xs={{ span: 24, offset: 0 }} md={10} lg={8} offset={2}>
                     <Card>
-                        <Image src={MailIcon} width={32} height={32} alt="mail icon" />
-                        <Text variant="heading6" color={theme.colors.primary} style={{ marginTop: "1rem" }} block>
+                        <Image
+                            src={mode === "light" ? MailIcon : MailIconDark}
+                            width={32}
+                            height={32}
+                            alt="mail icon"
+                        />
+                        <Text variant="heading6" style={{ marginTop: "1rem" }} block>
                             Email
                         </Text>
-                        <Text variant="body4" color={theme.colors.primary} style={{ marginTop: "0.5rem" }} block>
+                        <Text variant="body4" style={{ marginTop: "0.5rem" }} block>
                             support@cryptoapp.com
                         </Text>
                     </Card>
                     <Card>
-                        <Image src={PhoneIcon} width={32} height={32} alt="phone icon" />
-                        <Text variant="heading6" color={theme.colors.primary} style={{ marginTop: "1rem" }} block>
+                        <Image
+                            src={mode === "light" ? PhoneIcon : PhoneIconDark}
+                            width={32}
+                            height={32}
+                            alt="phone icon"
+                        />
+                        <Text variant="heading6" style={{ marginTop: "1rem" }} block>
                             Phone
                         </Text>
-                        <Text variant="body4" color={theme.colors.primary} style={{ marginTop: "0.5rem" }} block>
+                        <Text variant="body4" style={{ marginTop: "0.5rem" }} block>
                             Reach us anytime at
                         </Text>
-                        <Text variant="body4" style={{ marginTop: "0.5rem" }} color={theme.colors.primary}>
+                        <Text variant="body4" style={{ marginTop: "0.5rem" }}>
                             +1 (555) 000-0000
                         </Text>
                     </Card>
                     <Card>
-                        <Image src={LocationIcon} width={32} height={32} alt="location icon" />
-                        <Text variant="heading6" color={theme.colors.primary} style={{ marginTop: "1rem" }} block>
+                        <Image
+                            src={mode === "light" ? LocationIcon : LocationIconDark}
+                            width={32}
+                            height={32}
+                            alt="location icon"
+                        />
+                        <Text variant="heading6" style={{ marginTop: "1rem" }} block>
                             Location
                         </Text>
-                        <Text variant="body4" color={theme.colors.primary} style={{ marginTop: "0.5rem" }} block>
+                        <Text variant="body4" style={{ marginTop: "0.5rem" }} block>
                             123 Sample St, Sydney NSW 2000 AU
                         </Text>
                     </Card>
