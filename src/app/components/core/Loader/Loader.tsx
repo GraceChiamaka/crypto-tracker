@@ -6,6 +6,7 @@ const Container = styled.div<{ $fullWidth: boolean }>`
     justify-content: center;
     padding: ${({ theme }) => theme.spacing["2xl"]};
     height: ${({ theme, $fullWidth }) => ($fullWidth ? "100vh" : "auto")};
+    background: ${({ theme }) => theme.colors.background};
 `;
 
 const Spinner = styled.div`
@@ -22,10 +23,10 @@ const Spinner = styled.div`
         width: 64px;
         height: 64px;
         margin: 8px;
-        border: 8px solid currentColor;
+        border: ${({ theme }) => `8px solid ${theme.colors.primary}`};
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: currentColor transparent transparent transparent;
+        border-color: ${({ theme }) => `${theme.colors.primary} transparent transparent transparent`};
     }
 
     .lds-ring div:nth-child(1) {
