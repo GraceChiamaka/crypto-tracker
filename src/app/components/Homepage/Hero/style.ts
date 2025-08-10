@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
@@ -17,7 +18,7 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroSection = styled.div`
-    background: ${({ theme }: any) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.background};
     padding: ${({ theme }) => theme.spacing.double(0, 8)};
     ${({ theme }) => theme.media.customDesktop(1600)} {
         padding: ${({ theme }) => theme.spacing.double(0, 12)};
@@ -53,7 +54,7 @@ export const ButtonRow = styled.div`
     margin-top: 1rem;
 `;
 
-export const Backdrop = styled.div<{ img: any }>`
+export const Backdrop = styled.div<{ img: StaticImageData }>`
     background-image: ${({ img }) => `url(${img.src})`};
     background-repeat: no-repeat;
     background-size: cover;

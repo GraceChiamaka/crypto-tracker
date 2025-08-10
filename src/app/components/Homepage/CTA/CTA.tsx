@@ -29,9 +29,7 @@ export const CTA = () => {
                     </Text>
                     <Row justify={"center"} style={{ gap: "1.5rem" }}>
                         <Col xs={24} md={6} lg={6}>
-                            <Button variant={"default"} outline>
-                                Try for free
-                            </Button>
+                            <Button>Try for free</Button>
                         </Col>
                     </Row>
                 </Col>

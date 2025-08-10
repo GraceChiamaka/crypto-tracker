@@ -6,8 +6,6 @@ interface PropsWithStyle {
 }
 
 type ButtonProps = PropsWithStyle & {
-    variant: "default" | "secondary" | "link" | "linkSecondary";
-    outline?: boolean;
     children: ReactNode | string | number;
     onClick?: () => void;
 };
@@ -18,7 +16,7 @@ const StyledButton = styled.button`
     padding: ${({ theme }) => theme.spacing.double(0, 1.5)};
     background: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.secondary};
-    border: ${({ theme, outline }) => (outline === "true" ? theme.border.buttonBlack : "none")};
+    border: none;
     font-family: ${({ theme }) => theme.fontFamily.medium};
     font-size: ${({ theme }) => theme.fontSize.normal};
     border-radius: 4px;
@@ -27,13 +25,14 @@ const StyledButton = styled.button`
     align-items: center;
     justify-content: center;
     outline: none;
-    box-shadow: "0px 2px 2px rgba(12, 10, 1, 0.15), inset 0px 4px 0px rgba(255, 255, 255, 0.2), inset 0px -5px 0px rgba(12, 10, 1, 0.15)";
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    position: relative;
+    transition: all 0.3s ease;
 
-    &:before {
+    &:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+    }
+
+    /* &:before {
         pointer-events: none;
         content: "";
         position: absolute;
@@ -63,7 +62,7 @@ const StyledButton = styled.button`
             left: -8px;
             opacity: 1;
         }
-    }
+    } */
 `;
 
 export const Button = ({ children, ...rest }: ButtonProps) => {

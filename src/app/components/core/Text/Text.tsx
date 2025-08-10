@@ -27,7 +27,7 @@ interface PropsWithChildren {
 
 type TextProps = PropsWithChildren &
     PropsWithStyle & {
-        align?: "default" | "center";
+        align?: "left" | "center" | "right";
         block?: boolean;
         /**
          * specify a color
@@ -211,43 +211,45 @@ const generateFont = (variant: Weights, theme: DefaultTheme) =>
     }[variant]);
 
 export const StyledText = styled.span<{
-    align?: "default" | "center";
-    block?: boolean | string;
+    align?: "left" | "center" | "right";
+    $block?: boolean;
     color?: string;
     font?: "bio" | "reg";
     variant: TextVariants;
     $weight?: Weights;
 }>`
-    color: ${({ theme, color }) => (color ? color : theme.colors.text)};
+    color: ${({ theme, color }) => color ?? theme.colors.text};
     ${({ variant, theme }) => variantOptions(variant, theme)}
     ${({ $weight, font, theme }) =>
         $weight ? (font === "bio" ? generateFont($weight, theme) : weightOptions($weight, theme)) : null}
-    display: ${({ block }) => (Boolean(block) ? "block" : "inline-block")};
-    text-align: ${({ align }) => (align === "center" ? "center" : "left")};
+    display: ${({ $block }) => ($block ? "block" : "inline-block")};
+    text-align: ${({ align }) => align ?? "left"};
     ${({ theme }) => theme.media.mobile} {
         ${({ variant, theme }) => variantOptionsMobile(variant, theme)}
     }
 `;
 
 export const Text = ({
-    align = "default",
-    block = false,
+    align = "left",
+    block,
     color,
     children,
     font = "reg",
     style,
     variant,
     weight = "regular",
+    ...rest
 }: TextProps) => {
     return (
         <StyledText
             align={align}
-            block={block.toString()}
+            $block={block}
             color={color}
             font={font}
             variant={variant}
             $weight={weight}
             style={style}
+            {...rest}
         >
             {children}
         </StyledText>

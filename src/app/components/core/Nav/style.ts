@@ -5,7 +5,7 @@ export const Container = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: ${({ theme }) => `0 4px 12px rgba(125, 103, 255, 0.35)`};
+    box-shadow: 0 4px 12px rgba(125, 103, 255, 0.35);
     margin-bottom: 1rem;
     ${({ theme }) => theme.media.customDesktop(1600)} {
         padding: ${({ theme }) => theme.spacing.double(1.2, 12)};

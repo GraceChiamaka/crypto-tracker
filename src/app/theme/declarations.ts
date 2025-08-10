@@ -7,8 +7,11 @@ const colors = {
         accent2: "#E5E0FF",
         primary: "#7D67FF",
         text: "#352E5B",
+        textAccent: "#C0BBE0",
         secondary: "#FFFFFF",
         muted: "#A5A2B8",
+        red: "#F46565",
+        green: "#3EDD87",
     },
     dark: {
         background: "#0B091A",
@@ -16,8 +19,11 @@ const colors = {
         accent2: "#1C1833",
         primary: "#FFFFFF",
         text: "#E1DFEC",
+        textAccent: "#FFFFFF",
         secondary: "#0D0B1C",
         muted: "#E1DFEC",
+        red: "#F46565",
+        green: "#3EDD87",
     },
     white: "#FFFFFF",
 };

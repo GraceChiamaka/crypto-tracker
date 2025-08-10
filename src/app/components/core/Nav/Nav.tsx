@@ -9,12 +9,12 @@ import {
     FlexContainer,
     MenuButton,
 } from "./style";
-import { Dropdown } from "antd";
+
 import Image from "next/image";
 import { Button } from "../index";
 import { Svg } from "@assets/svg";
 import { useState } from "react";
-const { LogoBlack, LogoWhite, CloseIcon, ChevronDown } = Svg;
+const { LogoBlack, LogoWhite, CloseIcon } = Svg;
 
 export const Nav = ({ mode = "light" }) => {
     const [showMenu, setShowMenu] = useState(false);
@@ -42,7 +42,7 @@ export const Nav = ({ mode = "light" }) => {
             </FlexContainer>
 
             <NavButtons show={showMenu}>
-                <Link href={"/auth/login"}>
+                <Link href={"/dashboard"}>
                     <Button>Get Started</Button>
                 </Link>
             </NavButtons>

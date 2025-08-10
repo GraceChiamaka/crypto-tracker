@@ -3,10 +3,10 @@
 import { Button, Text } from "@components/core";
 import { Col, Row } from "antd";
 import { Svg } from "@assets/svg";
-import styled from "styled-components";
 import Image from "next/image";
+
 import { HeroContainer, HeroSection, ButtonRow, Backdrop } from "./style";
-const { ComputerBG, DashboardIcon, HeroBackdropDark, HeroBackdropLight } = Svg;
+const { DashboardIcon, HeroBackdropDark, HeroBackdropLight } = Svg;
 
 export const Hero = ({ mode = "light" }) => {
     return (
@@ -28,9 +28,7 @@ export const Hero = ({ mode = "light" }) => {
                 <Row justify={"center"}>
                     <Col xs={24} md={6} lg={6} xxl={4}>
                         <ButtonRow>
-                            <Button variant={"secondary"} outline>
-                                Jump Right In
-                            </Button>
+                            <Button>Jump Right In</Button>
                         </ButtonRow>
                     </Col>
                 </Row>

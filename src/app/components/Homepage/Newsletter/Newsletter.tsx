@@ -1,7 +1,6 @@
 import { Button, Text, CustomInput } from "@components/core";
 import { Row, Col } from "antd";
 import { Svg } from "@assets/svg";
-import Image from "next/image";
 import styled from "styled-components";
 
 const { SubscribeBG1 } = Svg;
@@ -51,7 +50,7 @@ const Backdrop = styled.div`
     }
 `;
 
-export const Newsletter = ({ variant = "default" }: { variant: "default" | "news" }) => {
+export const Newsletter = () => {
     return (
         <Container data-component={"newsletter"}>
             <Row align={"middle"} gutter={{ xxl: 48 }}>
@@ -71,7 +70,7 @@ export const Newsletter = ({ variant = "default" }: { variant: "default" | "news
                             <CustomInput mode={"dark"} placeholder="Enter your email" />
                         </Col>
                         <Col xs={24} md={6} lg={8}>
-                            <Button variant="default">Sign up</Button>
+                            <Button>Sign up</Button>
                         </Col>
                     </Row>
                     <Text variant="body5">By clicking Sign Up, you agree to our Terms and Conditions.</Text>

@@ -34,6 +34,15 @@ import Twitter from "./svg/twitter.svg";
 import RealTimeBG from "./svg/real-time.svg";
 import SubscribeBG1 from "./svg/subscribe.svg";
 import WatchlistBG from "./svg/watchlist.svg";
+import ToggleIcon from "./svg/stats.svg";
+import LogoSmall from "./svg/logo_small.svg";
+import SwapIcon from "./svg/swap-horizontal.svg";
+import SwapIconWhite from "./svg/swap_white.svg";
+import PlusIcon from "./svg/plus.svg";
+import ArrowDown from "./svg/arrow-down.svg";
+import ArrowUp from "./svg/arrow-up.svg";
+import EyeIcon from "./svg/eye.svg";
+import ErrorBG from "./svg/not_found.svg";
 
 export const Svg = {
     ChevronRight,
@@ -43,6 +52,9 @@ export const Svg = {
     ComputerBG,
     DashboardIcon,
     DashboardBG1,
+    EyeIcon,
+    ErrorBG,
+
     Facebook,
     HeroBackdropDark,
     HeroBackdropLight,
@@ -54,13 +66,16 @@ export const Svg = {
     LogoWhite,
     LogoTextBlack,
     LogoTextWhite,
+    LogoSmall,
     MailIcon,
     MailIconDark,
     PhoneIcon,
     PhoneIconDark,
+    PlusIcon,
     PriceIcon,
     PriceIconDark,
     PriceBG,
+
     PortfolioBG,
     PortfolioBG1,
     PortfolioBG2,
@@ -70,6 +85,11 @@ export const Svg = {
     TrackIcon,
     TrackIconDark,
     Twitter,
+    ToggleIcon,
     SubscribeBG1,
     WatchlistBG,
+    SwapIcon,
+    SwapIconWhite,
+    ArrowDown,
+    ArrowUp,
 };
