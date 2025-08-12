@@ -3,11 +3,11 @@ import { Nav, Loader } from "@components/core";
 
 import { CTA, Hero, Features, Newsletter, Contact, Footer } from "@components/index";
 import { useEffect, useState } from "react";
-import { useThemeContext } from "@src/app/theme";
+import { useTheme } from "@hooks/useTheme";
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
-    const { mode } = useThemeContext();
+    const { mode } = useTheme();
 
     useEffect(() => {
         if (window !== undefined && document.readyState === "complete") {
