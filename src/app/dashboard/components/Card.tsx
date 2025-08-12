@@ -44,7 +44,7 @@ export const Card = ({ amount, variant = "default" }: CardProps) => {
             </CardTop>
             <CardBottom>
                 <div>
-                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant}>
+                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant} block>
                         5M
                     </PriceLabel>
                     <PriceValue variant={"body4"} $variant={"high"}>
@@ -52,7 +52,7 @@ export const Card = ({ amount, variant = "default" }: CardProps) => {
                     </PriceValue>
                 </div>
                 <div>
-                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant}>
+                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant} block>
                         24H
                     </PriceLabel>
                     <PriceValue variant={"body4"} $variant={"low"}>
@@ -60,7 +60,7 @@ export const Card = ({ amount, variant = "default" }: CardProps) => {
                     </PriceValue>
                 </div>
                 <div>
-                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant}>
+                    <PriceLabel variant={"body4"} weight="medium" $containerVariant={variant} block>
                         MCap
                     </PriceLabel>
                     <PriceValue variant={"body4"} $variant="default">

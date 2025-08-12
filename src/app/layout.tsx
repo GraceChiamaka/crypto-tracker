@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { StyledThemeProvider, GlobalStyle } from "@theme/index";
 import "@theme/globals.css";
+import { StoreProvider } from "./store";
 
 export const metadata: Metadata = {
     title: "Cryphr",
@@ -11,10 +12,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <StyledThemeProvider>
-                    <GlobalStyle />
-                    {children}
-                </StyledThemeProvider>
+                <StoreProvider>
+                    <StyledThemeProvider>
+                        <GlobalStyle />
+                        {children}
+                    </StyledThemeProvider>
+                </StoreProvider>
             </body>
         </html>
     );

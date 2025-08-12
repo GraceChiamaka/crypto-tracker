@@ -43,6 +43,9 @@ import ArrowDown from "./svg/arrow-down.svg";
 import ArrowUp from "./svg/arrow-up.svg";
 import EyeIcon from "./svg/eye.svg";
 import ErrorBG from "./svg/not_found.svg";
+import LightModeIcon from "./svg/light.svg";
+import DarkModeIcon from "./svg/dark.svg";
+import HelpIcon from "./svg/help.svg"
 
 export const Svg = {
     ChevronRight,
@@ -52,21 +55,25 @@ export const Svg = {
     ComputerBG,
     DashboardIcon,
     DashboardBG1,
+    DarkModeIcon,
     EyeIcon,
     ErrorBG,
 
     Facebook,
     HeroBackdropDark,
-    HeroBackdropLight,
+	HeroBackdropLight,
+	HelpIcon,
     Instagram,
     LinkedIn,
+    LightModeIcon,
     LocationIcon,
     LocationIconDark,
     LogoBlack,
     LogoWhite,
     LogoTextBlack,
     LogoTextWhite,
-    LogoSmall,
+	LogoSmall,
+	
     MailIcon,
     MailIconDark,
     PhoneIcon,
@@ -75,10 +82,10 @@ export const Svg = {
     PriceIcon,
     PriceIconDark,
     PriceBG,
-
     PortfolioBG,
     PortfolioBG1,
-    PortfolioBG2,
+	PortfolioBG2,
+	
     RealTimeBG,
     TrackBG,
     TrackBGDark,
