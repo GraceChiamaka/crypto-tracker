@@ -1,9 +1,8 @@
 import { Text, ArrowRightIcon } from "@components/core";
-import { Row, Col } from "antd";
 import { SectionHeader, SectionActionButton } from "./style";
 import { Card, EmptyCard } from "./Card";
 
-export const Assets = () => {
+const Assets = () => {
     return (
         <section data-component={"Dashboard-Assets"} style={{ marginBottom: "3rem" }}>
             <SectionHeader>
@@ -16,18 +15,19 @@ export const Assets = () => {
                 </SectionActionButton>
             </SectionHeader>
             <section>
-                <Row gutter={18}>
-                    <Col xs={24} md={12} xl={8}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "18px" }}>
+                    <div style={{ flex: "1 1 300px", minWidth: "300px" }}>
                         <Card variant="default" amount={"1,650"} />
-                    </Col>
-                    <Col xs={24} md={12} xl={8}>
+                    </div>
+                    <div style={{ flex: "1 1 300px", minWidth: "300px" }}>
                         <Card amount={"2,500"} variant="secondary" />
-                    </Col>
-                    <Col xs={24} md={24} xl={8}>
+                    </div>
+                    <div style={{ flex: "1 1 300px", minWidth: "300px" }}>
                         <EmptyCard />
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </section>
         </section>
     );
 };
+export default Assets;

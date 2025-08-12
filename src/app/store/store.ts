@@ -1,8 +1,19 @@
 import { configureStore, Middleware } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector as useReduxSelector } from "react-redux";
 import { rootReducer } from "./slices";
-import { persistStore, persistReducer, Persistor } from "redux-persist";
+import {
+    persistStore,
+    persistReducer,
+    Persistor,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { baseApi } from "@services/index";
 
 // ts-ignore
 const logger: Middleware = (store) => (next) => (action: any) => {
@@ -24,7 +35,14 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
     reducer: persistedReducer,
     devTools: process.env.NODE_ENV === "development",
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        })
+            .concat(baseApi.middleware)
+            .concat(logger),
 });
 
 export const persistor: Persistor = persistStore(store);

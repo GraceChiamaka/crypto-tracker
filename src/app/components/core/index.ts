@@ -6,3 +6,4 @@ export * from "./Loader";
 export * from "../DashboardLayout";
 export * from "./Icons";
 export * from "./Avatar";
+export * from "./Error";
