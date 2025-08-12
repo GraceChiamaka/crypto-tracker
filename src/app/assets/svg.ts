@@ -46,6 +46,7 @@ import ErrorBG from "./svg/not_found.svg";
 import LightModeIcon from "./svg/light.svg";
 import DarkModeIcon from "./svg/dark.svg";
 import HelpIcon from "./svg/help.svg"
+import ErrorBg1 from "./svg/error.svg";
 
 export const Svg = {
     ChevronRight,
@@ -58,6 +59,7 @@ export const Svg = {
     DarkModeIcon,
     EyeIcon,
     ErrorBG,
+	ErrorBg1,
 
     Facebook,
     HeroBackdropDark,
