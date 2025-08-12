@@ -4,9 +4,9 @@ const Container = styled.div<{ $fullWidth: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: ${({ theme }) => theme.spacing["2xl"]};
+    padding: 2rem;
     height: ${({ $fullWidth }) => ($fullWidth ? "100vh" : "auto")};
-    background: ${({ theme }) => theme.colors.background};
+    background: #ffffff;
 `;
 
 const Spinner = styled.div`
@@ -23,10 +23,10 @@ const Spinner = styled.div`
         width: 64px;
         height: 64px;
         margin: 8px;
-        border: ${({ theme }) => `8px solid ${theme.colors.primary}`};
+        border: 8px solid #7d67ff;
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: ${({ theme }) => `${theme.colors.primary} transparent transparent transparent`};
+        border-color: #7d67ff transparent transparent transparent;
     }
 
     .lds-ring div:nth-child(1) {

@@ -42,6 +42,7 @@ export const Activity = () => {
             key: "name",
             title: "Coin",
             dataIndex: "name",
+            // fixed: "left",
             render: (_, record: CoinData) => (
                 <CoinLabel>
                     <Image src={record.image} width={24} height={24} alt={"coin"} />{" "}
@@ -56,6 +57,7 @@ export const Activity = () => {
             title: "Updated",
             dataIndex: "last_updated",
             render: (_, record: CoinData) => <>{relativeTimestamp(record.last_updated)}</>,
+            responsive: ["md"],
         },
         {
             key: "change",
@@ -89,13 +91,13 @@ export const Activity = () => {
             key: "date",
             title: "Date",
             dataIndex: "ath_date",
+            // fixed: "right",
             render: () => (
                 <FlipButton>
                     <Image
                         src={EyeIcon}
                         width={24}
                         height={24}
-                        aria-braillelabel="Get more info"
                         aria-label="Get more coin info"
                         alt={"get more info icon"}
                     />
@@ -111,7 +113,8 @@ export const Activity = () => {
                     ACTIVITY
                 </Text>
                 <SectionActionButton>
-                    More Activity <ArrowRightIcon />
+                    <span>More</span>
+                    <ArrowRightIcon />
                 </SectionActionButton>
             </SectionHeader>
             <TableWrapper>
@@ -119,6 +122,10 @@ export const Activity = () => {
                     columns={columns}
                     rowKey={(record) => record.id}
                     dataSource={CoinsList as CoinData[]}
+                    pagination={{
+                        defaultPageSize: 25,
+                        pageSize: 25,
+                    }}
                 />
             </TableWrapper>
         </section>

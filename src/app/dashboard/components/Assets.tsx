@@ -11,18 +11,19 @@ export const Assets = () => {
                     ASSETS
                 </Text>
                 <SectionActionButton>
-                    More Activity <ArrowRightIcon />
+                    <span> More </span>
+                    <ArrowRightIcon />
                 </SectionActionButton>
             </SectionHeader>
             <section>
                 <Row gutter={18}>
-                    <Col lg={8}>
+                    <Col xs={24} md={12} xl={8}>
                         <Card variant="default" amount={"1,650"} />
                     </Col>
-                    <Col lg={8}>
+                    <Col xs={24} md={12} xl={8}>
                         <Card amount={"2,500"} variant="secondary" />
                     </Col>
-                    <Col lg={8}>
+                    <Col xs={24} md={24} xl={8}>
                         <EmptyCard />
                     </Col>
                 </Row>

@@ -23,6 +23,7 @@
     "paths": {
       "@assets/*": ["./src/app/assets/*"],
       "@components/*": ["./src/app/components/*"],
+      "@hooks/*": ["./src/app/hooks/*"],
       "@services/*": ["./src/app/services/*"],
       "@src/*": ["./src/*"],
       "@store/*": ["./src/app/store/*"],

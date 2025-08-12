@@ -1,16 +1,25 @@
 "use client";
-import { LayoutContainer, ContentContainer } from "./style";
-import { Sidebar } from "./Sidebar";
-import { ReactNode } from "react";
+import { LayoutContainer } from "./style";
+import { useState, useEffect, ReactNode } from "react";
 import { UserProfile } from "./Profile";
-import { useThemeContext } from "@src/app/theme";
+
+import { Sidebar } from "./Sidebar";
+import { Loader } from "@components/core";
+import { DashboardContent } from "./DashboardContent";
 
 export const StyledLayout = ({ children }: { children: ReactNode }) => {
-    const { isCollapsed } = useThemeContext();
-    return (
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    return !isMounted ? (
+        <Loader fullWidth />
+    ) : (
         <LayoutContainer>
             <Sidebar />
-            <ContentContainer $collapse={isCollapsed}>{children}</ContentContainer>
+            <DashboardContent>{children}</DashboardContent>
             <UserProfile />
         </LayoutContainer>
     );

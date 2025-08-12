@@ -36,6 +36,15 @@ export const CardContainer = styled.div<{ $variant: "default" | "secondary" }>`
     ${({ theme }) => theme.media.customDesktop(1600)} {
         min-height: 112px;
     }
+    ${({ theme }) => theme.media.smallLaptop} {
+        margin-bottom: 1rem;
+    }
+    ${({ theme }) => theme.media.tablet} {
+        margin-bottom: 1rem;
+    }
+    ${({ theme }) => theme.media.mobile} {
+        margin-bottom: 1rem;
+    }
 `;
 
 export const CardTop = styled.div`
@@ -102,19 +111,50 @@ export const CoinLabel = styled.div`
     gap: 6px;
 `;
 export const TableWrapper = styled.div`
+    .ant-table-wrapper,
     .ant-table {
+        background: transparent;
         font-family: ${({ theme }) => theme.fontFamily.regular};
+        color: ${({ theme }) => theme.colors.text};
         thead {
             tr {
-            th {
-                background: transparent;
-                color: ${({ theme }) => theme.colors.text};
-                border-bottom: ${({ theme }) => `1px solid ${theme.colors.muted}`};
-                                &::before {
-                    display: none;
+                th {
+                    background: transparent;
+                    color: ${({ theme }) => theme.colors.muted} !important;
+                    border-bottom: ${({ theme }) => `1px solid ${theme.colors.accent}`};
+                    &::before {
+                        display: none;
+                    }
                 }
             }
         }
-        
+        .ant-table-cell-row-hover {
+            background: ${({ theme }) => theme.colors.accent} !important;
+        }
+        tbody {
+            td {
+                border-color: ${({ theme }) => theme.colors.accent};
+            }
+        }
+
+        .ant-pagination-item {
+            background: ${({ theme }) => theme.colors.background} !important;
+            color: ${({ theme }) => theme.colors.text} !important;
+            border: ${({ theme }) => `1px solid ${theme.colors.accent2}`} !important;
+            a {
+                color: ${({ theme }) => theme.colors.text} !important;
+            }
+        }
+        .ant-pagination-item-active {
+            background: ${({ theme }) => theme.colors.accent2} !important;
+        }
+        .ant-pagination-options .ant-select-selector {
+            background: ${({ theme }) => theme.colors.accent2};
+            border: ${({ theme }) => `1px solid ${theme.colors.accent2}`} !important;
+            color: ${({ theme }) => theme.colors.text} !important;
+        }
+        ${({ theme }) => theme.media.mobile} {
+            overflow-x: auto;
+        }
     }
 `;
