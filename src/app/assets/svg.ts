@@ -45,10 +45,13 @@ import EyeIcon from "./svg/eye.svg";
 import ErrorBG from "./svg/not_found.svg";
 import LightModeIcon from "./svg/light.svg";
 import DarkModeIcon from "./svg/dark.svg";
-import HelpIcon from "./svg/help.svg"
+import HelpIcon from "./svg/help.svg";
 import ErrorBg1 from "./svg/error.svg";
+import WalletBg from "./svg/wallet.svg";
 
 export const Svg = {
+    ArrowDown,
+    ArrowUp,
     ChevronRight,
     ChevronDown,
     CloseIcon,
@@ -59,12 +62,12 @@ export const Svg = {
     DarkModeIcon,
     EyeIcon,
     ErrorBG,
-	ErrorBg1,
+    ErrorBg1,
 
     Facebook,
     HeroBackdropDark,
-	HeroBackdropLight,
-	HelpIcon,
+    HeroBackdropLight,
+    HelpIcon,
     Instagram,
     LinkedIn,
     LightModeIcon,
@@ -74,8 +77,8 @@ export const Svg = {
     LogoWhite,
     LogoTextBlack,
     LogoTextWhite,
-	LogoSmall,
-	
+    LogoSmall,
+
     MailIcon,
     MailIconDark,
     PhoneIcon,
@@ -86,19 +89,18 @@ export const Svg = {
     PriceBG,
     PortfolioBG,
     PortfolioBG1,
-	PortfolioBG2,
-	
+    PortfolioBG2,
+
     RealTimeBG,
+    SubscribeBG1,
+    SwapIcon,
+    SwapIconWhite,
     TrackBG,
     TrackBGDark,
     TrackIcon,
     TrackIconDark,
     Twitter,
     ToggleIcon,
-    SubscribeBG1,
     WatchlistBG,
-    SwapIcon,
-    SwapIconWhite,
-    ArrowDown,
-    ArrowUp,
+    WalletBg,
 };

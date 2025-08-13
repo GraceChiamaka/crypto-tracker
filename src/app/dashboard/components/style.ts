@@ -8,6 +8,14 @@ export const SectionHeader = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing.large};
 `;
 
+export const SectionContainer = styled.section`
+    margin-bottom: 1.5rem;
+    background: ${({ theme }) => theme.colors.accent};
+    padding: ${({ theme }) => theme.spacing.double(1, 1.3)};
+    box-shadow: 0 2px 4px rgba(125, 103, 255, 0.4);
+    /* border-radius: 2px; */
+`;
+
 export const SectionActionButton = styled.button`
     display: flex;
     align-items: center;
@@ -17,41 +25,14 @@ export const SectionActionButton = styled.button`
     background: transparent;
     border: none;
     outline: none;
-    font-family: ${({ theme }) => theme.fontFamily.regular};
+    font-family: ${({ theme }) => theme.fontFamily.sans};
     svg {
         width: 18px;
         height: 16px;
     }
 `;
 
-export const CardContainer = styled.div<{ $variant: "default" | "secondary" }>`
-    background: ${({ theme, $variant }) => ($variant === "default" ? theme.colors.primary : theme.colors.accent)};
-    padding: ${({ theme }) => theme.spacing.tiny};
-    border: ${({ theme }) => theme.border};
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    min-height: 120px;
-    justify-content: space-between;
-    ${({ theme }) => theme.media.customDesktop(1600)} {
-        min-height: 112px;
-    }
-    ${({ theme }) => theme.media.smallLaptop} {
-        margin-bottom: 1rem;
-    }
-    ${({ theme }) => theme.media.tablet} {
-        margin-bottom: 1rem;
-    }
-    ${({ theme }) => theme.media.mobile} {
-        margin-bottom: 1rem;
-    }
-`;
-
-export const CardTop = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
-export const FlipButton = styled.button`
+export const TableActionButton = styled.button`
     background: transparent;
     width: ${({ theme }) => theme.spacing["2xl"]};
     height: ${({ theme }) => theme.spacing["2xl"]};
@@ -62,49 +43,12 @@ export const FlipButton = styled.button`
     border: ${({ theme }) => theme.border};
     cursor: pointer;
 `;
-export const CardBottom = styled.div`
-    margin-top: 1rem;
-    display: flex;
-    gap: 6px;
-    justify-content: space-between;
-    flex: 1;
-`;
 
-export const PriceLabel = styled(Text)<{ $containerVariant: "default" | "secondary" }>`
-    color: ${({ theme, $containerVariant }) =>
-        $containerVariant === "default" ? theme.colors.secondary : theme.colors.text};
-`;
-
-export const CoinValue = styled(Text)<{ $containerVariant: "default" | "secondary" }>`
-    color: ${({ theme, $containerVariant }) =>
-        $containerVariant === "default" ? theme.colors.secondary : theme.colors.primary};
-`;
-export const PriceValue = styled(Text)<{ $variant: "low" | "high" | "default" }>`
+export const TablePriceValue = styled(Text)<{ $variant: "low" | "high" | "default" }>`
     color: ${({ theme, $variant }) =>
         $variant === "low" ? theme.colors.red : $variant === "high" ? theme.colors.green : theme.colors.muted};
 `;
 
-export const EmptyCardContainer = styled.div`
-    height: 120px;
-    border: ${({ theme }) => theme.border};
-    background: ${({ theme }) => theme.colors.accent};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 0.5rem;
-    gap: 4px;
-    cursor: pointer;
-    &:hover {
-        background: ${({ theme }) => theme.colors.accent2};
-    }
-    span {
-        color: ${({ theme }) => theme.colors.primary};
-    }
-    ${({ theme }) => theme.media.customDesktop(1600)} {
-        height: 112px;
-    }
-`;
 export const CoinLabel = styled.div`
     display: flex;
     align-items: center;
@@ -114,7 +58,7 @@ export const TableWrapper = styled.div`
     .ant-table-wrapper,
     .ant-table {
         background: transparent;
-        font-family: ${({ theme }) => theme.fontFamily.regular};
+        font-family: ${({ theme }) => theme.fontFamily.sans};
         color: ${({ theme }) => theme.colors.text};
         thead {
             tr {

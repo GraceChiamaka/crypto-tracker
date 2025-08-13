@@ -84,7 +84,8 @@ export const NavButtons = styled.div<{ show: boolean }>`
 
 export const NavMenu = styled.div`
     color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.fontFamily.medium};
+    font-family: ${({ theme }) => theme.fontFamily.sans};
+    font-weight: 500;
     font-size: ${({ theme }) => theme.fontSize.normal};
 
     ${({ theme }) => theme.media.smallLaptop} {

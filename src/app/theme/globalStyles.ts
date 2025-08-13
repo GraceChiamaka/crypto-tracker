@@ -8,9 +8,10 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background: ${({ theme }) => theme.colors.background};;
-    color: ${({ theme }) => theme.colors.text};;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 1rem;
+	font-family: ${({ theme }) => theme.fontFamily.onest};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "DMSans", sans-serif;

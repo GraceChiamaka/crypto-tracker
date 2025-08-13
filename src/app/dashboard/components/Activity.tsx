@@ -1,35 +1,37 @@
 "use client";
-import { Text, ArrowRightIcon, Loader, Error } from "@components/core";
-import { SectionHeader, SectionActionButton, TableWrapper } from "./style";
-import { useListCoinsQuery } from "@services/base";
+import { Text, EmptyState } from "@components/core";
+import { SectionHeader, TableWrapper, SectionContainer } from "./style";
+import { Row, Col } from "antd";
 
-const Activity = () => {
-    const { isLoading, isError, isSuccess, data: CoinsData } = useListCoinsQuery("");
-
-    if (isError) return <Error />;
-    if (isLoading) return <Loader transparent />;
-
+export const Activity = () => {
     return (
-        isSuccess &&
-        CoinsData && (
-            <section data-component={"Dashboard-Activity"} style={{ marginBottom: "1.5rem" }}>
-                <SectionHeader>
-                    <Text variant="heading5" weight="semibold">
-                        ACTIVITY
-                    </Text>
-                    <SectionActionButton>
-                        <span>More</span>
-                        <ArrowRightIcon />
-                    </SectionActionButton>
-                </SectionHeader>
-                <TableWrapper>
-                    <div style={{ padding: "20px", textAlign: "center" }}>
-                        <Text variant={"heading5"}>Activity data will be displayed here</Text>
-                    </div>
-                </TableWrapper>
-            </section>
-        )
+        <>
+            <Row justify={"space-between"} gutter={24}>
+                <Col xl={12}>
+                    <SectionContainer data-component={"Dashboard-Activity"}>
+                        <SectionHeader>
+                            <Text variant="body3" weight="semibold" font={"mono"}>
+                                My Portfolio
+                            </Text>
+                        </SectionHeader>
+                        <TableWrapper>
+                            <EmptyState title={"You have no coins"} actionLabel="Add Coins" />
+                        </TableWrapper>
+                    </SectionContainer>
+                </Col>
+                <Col xl={12}>
+                    <SectionContainer data-component={"Dashboard-Activity"}>
+                        <SectionHeader>
+                            <Text variant="body3" weight="semibold" font={"mono"}>
+                                Transaction history
+                            </Text>
+                        </SectionHeader>
+                        <TableWrapper>
+                            <EmptyState title={"You don't own crypto"} actionLabel="Connect wallet" />
+                        </TableWrapper>
+                    </SectionContainer>
+                </Col>
+            </Row>
+        </>
     );
 };
-
-export default Activity;

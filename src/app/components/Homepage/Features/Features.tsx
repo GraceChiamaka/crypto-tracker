@@ -169,7 +169,7 @@ export const Features = ({ mode }: { mode: "dark" | "light" }) => {
                         <Backdrop1 />
                     </Col>
                     <Col xs={{ order: 1, span: 24 }} lg={{ order: 2, span: 11 }}>
-                        <Text variant={"heading3"} font="bio">
+                        <Text variant={"heading3"} font="sans">
                             Stay Updated in Real-Time
                         </Text>
                         <Text variant={"body3"} style={{ marginTop: "1.5rem" }}>
@@ -186,7 +186,7 @@ export const Features = ({ mode }: { mode: "dark" | "light" }) => {
                         <Text align="center" variant="tagline" color={theme.colors.text} block>
                             Features
                         </Text>
-                        <Text align="center" variant="heading2" color={theme.colors.text}>
+                        <Text align="center" variant="heading2" color={theme.colors.text} block>
                             Cutting-Edge Features
                         </Text>
                         <Text
@@ -248,7 +248,7 @@ export const Features = ({ mode }: { mode: "dark" | "light" }) => {
             <FeaturesYellowBG data-component={"Features"}>
                 <Row align={"middle"} justify={"center"} gutter={{ xs: 0, lg: 90 }}>
                     <Col lg={13}>
-                        <Text variant="heading3" font="bio">
+                        <Text variant="heading3" font="sans">
                             Effortless portfolio management.
                         </Text>
                         <Text variant="body3" style={{ marginTop: "1.5rem" }}>
@@ -263,7 +263,7 @@ export const Features = ({ mode }: { mode: "dark" | "light" }) => {
                                     height={48}
                                     alt={"track icon"}
                                 />
-                                <Text variant={"heading6"} font={"bio"} block>
+                                <Text variant={"heading6"} font={"sans"} block>
                                     Track Assets
                                 </Text>
                                 <Text variant={"body4"} style={{ marginTop: "1rem" }}>
@@ -278,7 +278,7 @@ export const Features = ({ mode }: { mode: "dark" | "light" }) => {
                                     height={48}
                                     alt={"price icon"}
                                 />
-                                <Text variant={"heading6"} font={"bio"} block>
+                                <Text variant={"heading6"} font={"sans"} block>
                                     Stay Informed
                                 </Text>
                                 <Text variant={"body4"} style={{ marginTop: "1rem" }}>

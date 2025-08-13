@@ -15,8 +15,10 @@ export const TopNav = () => {
     const LightIcon = () => <Image src={LightModeIcon} width={18} height={18} alt={"light mode "} />;
     const DarkIcon = () => <Image src={DarkModeIcon} width={18} height={18} alt={"light mode "} />;
     return (
-        <StyledTopNav>
-            <Text variant={"heading4"}>Dashboard</Text>
+        <StyledTopNav data-component={"TopNav"}>
+            <Text variant={"body4"} font={"onest"} weight="medium">
+                DASHBOARD
+            </Text>
             <div>
                 <StyledSwitch>
                     <SwitchButton

@@ -46,7 +46,7 @@ const FooterContainer = styled.div`
 
 const FooterHeading = styled.p`
     font-weight: 600;
-    font-family: ${({ theme }) => theme.fontFamily.semibold};
+    font-family: ${({ theme }) => theme.fontFamily.sans};
     color: ${({ theme }) => theme.colors.text};
     margin-bottom: ${({ theme }) => theme.spacing.normal};
     font-size: ${({ theme }) => theme.fontSize.normal};
@@ -55,7 +55,7 @@ const FooterList = styled.ul`
     list-style: none;
     li {
         color: ${({ theme }) => theme.colors.text};
-        font-family: ${({ theme }) => theme.fontFamily.regular};
+        font-family: ${({ theme }) => theme.fontFamily.sans};
         padding: ${({ theme }) => theme.spacing.double(0.5, 0)};
         font-size: ${({ theme }) => theme.fontSize.small};
     }

@@ -55,7 +55,7 @@ export const Newsletter = () => {
         <Container data-component={"newsletter"}>
             <Row align={"middle"} gutter={{ xxl: 48 }}>
                 <Col xs={24} md={24} lg={11} xxl={10}>
-                    <Text variant="heading3" font="bio">
+                    <Text variant="heading3" font="sans">
                         Stay Updated on Crypto Prices
                     </Text>
                     <Text variant="body3">

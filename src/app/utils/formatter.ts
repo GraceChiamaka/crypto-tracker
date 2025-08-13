@@ -1,5 +1,5 @@
-export const currencyFormatter = (amount: number) => {
-    const formattedPrice = Intl.NumberFormat("en", { style: "currency", currency: "usd" }).format(amount);
+export const currencyFormatter = (amount: number, currency: string = "usd") => {
+    const formattedPrice = Intl.NumberFormat("en", { style: "currency", currency: currency }).format(amount);
     return formattedPrice;
 };
 
