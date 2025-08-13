@@ -13,12 +13,31 @@ const Container = styled.div`
     align-items: center;
     gap: 8px;
 `;
-export const Error = ({ retryLabel = "Try again", label = "Something went wrong" }) => {
+const ButtonContainer = styled.div`
+    width: 200px;
+`;
+
+type ErrorProps = {
+    retryLabel: string;
+    description?: string;
+    showRetry?: boolean;
+    retryAction?: () => void;
+};
+export const Error = ({
+    retryLabel = "Try again",
+    description = "Something went wrong",
+    retryAction,
+    showRetry,
+}: ErrorProps) => {
     return (
         <Container>
             <Image src={ErrorBg1} width={180} height={180} alt="eror" />
-            <Text variant="heading5">{label}</Text>
-            <Button>{retryLabel}</Button>
+            <Text variant="heading6">{description}</Text>
+            {showRetry && (
+                <ButtonContainer>
+                    <Button onClick={retryAction}>{retryLabel}</Button>
+                </ButtonContainer>
+            )}
         </Container>
     );
 };

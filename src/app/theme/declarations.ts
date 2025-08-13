@@ -1,4 +1,5 @@
 import { Spacing } from "../@types/styled";
+import { fontGeist, fontDMMono, fontDMSans, fontOnest } from "@fonts/font";
 
 const colors = {
     light: {
@@ -12,6 +13,7 @@ const colors = {
         muted: "#A5A2B8",
         red: "#F46565",
         green: "#3EDD87",
+        white: "#FFFFFF",
     },
     dark: {
         background: "#0B091A",
@@ -24,8 +26,8 @@ const colors = {
         muted: "#E1DFEC",
         red: "#F46565",
         green: "#3EDD87",
+        white: "#FFFFFF",
     },
-    white: "#FFFFFF",
 };
 
 /**
@@ -101,14 +103,10 @@ const fontSize = {
 };
 
 const fontFamily = {
-    bio: "Bio",
-    bioMd: "BioMd",
-    bioSM: "BioSM",
-    bioBold: "BioBold",
-    regular: "DMSans, sans-serif",
-    medium: "DMSansMedium, sans-serif",
-    semibold: "DMSansSemiBold, sans-serif",
-    bold: "DMSansBold, sans-serif",
+    onest: fontOnest.style.fontFamily,
+    mono: fontDMMono.style.fontFamily,
+    geist: fontGeist.style.fontFamily,
+    sans: fontDMSans.style.fontFamily,
 };
 const weights = [400, 500, 600, 700];
 

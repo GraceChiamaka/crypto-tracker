@@ -12,7 +12,8 @@ const StyledInput = styled(Input)`
     border-radius: 0;
     outline: none;
     width: 100%;
-    font-family: ${({ theme }) => theme.fontFamily.medium};
+    font-family: ${({ theme }) => theme.fontFamily.sans};
+    font-weight: 500;
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     &:hover {

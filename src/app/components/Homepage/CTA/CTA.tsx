@@ -21,7 +21,7 @@ export const CTA = () => {
         <Container data-container={"CTA"}>
             <Row justify={"center"}>
                 <Col xs={24} lg={18} xl={16} xxl={14}>
-                    <Text align="center" variant={"heading2"} font={"bio"} block>
+                    <Text align="center" variant={"heading2"} font={"sans"} block>
                         Stay Ahead
                     </Text>
                     <Text align="center" variant={"body3"} style={{ margin: "1.5rem 0 2rem 0" }} block>

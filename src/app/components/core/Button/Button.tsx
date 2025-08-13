@@ -17,7 +17,7 @@ const StyledButton = styled.button`
     background: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.secondary};
     border: none;
-    font-family: ${({ theme }) => theme.fontFamily.medium};
+    font-family: ${({ theme }) => theme.fontFamily.sans};
     font-size: ${({ theme }) => theme.fontSize.normal};
     border-radius: 4px;
     cursor: pointer;
@@ -26,43 +26,11 @@ const StyledButton = styled.button`
     justify-content: center;
     outline: none;
     transition: all 0.3s ease;
+    font-weight: 500;
 
     &:hover {
         opacity: 0.8;
-        transform: translateY(-1px);
     }
-
-    /* &:before {
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        border: ${({ theme }) => theme.border};
-        border-radius: 4px;
-        top: -16px;
-        right: -16px;
-        bottom: -16px;
-        left: -16px;
-        opacity: 0;
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-property: top, right, bottom, left;
-        transition-property: top, right, bottom, left;
-    }
-    &:hover {
-        border-width: 0px;
-        transition: border 0.3s ease-in-out;
-        &:before,
-        &:focus,
-        &:before,
-        &:active,
-        &:before {
-            top: -8px;
-            right: -8px;
-            bottom: -8px;
-            left: -8px;
-            opacity: 1;
-        }
-    } */
 `;
 
 export const Button = ({ children, ...rest }: ButtonProps) => {

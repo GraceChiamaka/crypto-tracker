@@ -14,7 +14,7 @@ export const Hero = ({ mode = "light" }) => {
             <HeroContainer data-component={"Hero"}>
                 <Row justify={"center"}>
                     <Col lg={16} xxl={12}>
-                        <Text align="center" variant={"heading1"} font={"bio"}>
+                        <Text align="center" variant={"heading1"} font={"sans"}>
                             Track Crypto Prices in Real Time Effortlessly
                         </Text>
                     </Col>
@@ -37,7 +37,7 @@ export const Hero = ({ mode = "light" }) => {
                 <Row gutter={{ lg: 12, xxl: 80 }} align={"middle"}>
                     <Col lg={11}>
                         <Image src={DashboardIcon} width={40} height={40} alt="explore icon" />
-                        <Text variant={"heading3"} font="bio">
+                        <Text variant={"heading3"} font="sans">
                             Intuitive Dashboard
                         </Text>
                         <Text variant={"body3"} style={{ marginTop: "1.5rem" }}>

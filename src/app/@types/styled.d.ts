@@ -11,6 +11,7 @@ type ColorsTheme = {
     textAccent: string;
     red: string;
     green: string;
+    white: string;
 };
 
 type FontSizes = {
@@ -29,14 +30,10 @@ type FontSizes = {
 };
 
 type FontFamily = {
-    bio: string;
-    bioMd: string;
-    bioSM: string;
-    bioBold: string;
-    regular: string;
-    medium: string;
-    semibold: string;
-    bold: string;
+    onest: string;
+    mono: string;
+    sans: string;
+    geist: string;
 };
 
 export type Spacing = {

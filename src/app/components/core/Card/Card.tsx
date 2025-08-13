@@ -1,5 +1,5 @@
-import { Svg } from "@assets/svg";
 import {
+    BalanceCardContainer,
     CardContainer,
     CardBottom,
     CardTop,
@@ -9,8 +9,9 @@ import {
     FlipButton,
     EmptyCardContainer,
 } from "./style";
+import { Text } from "../Text";
 import Image from "next/image";
-import { Text } from "@components/core";
+import { Svg } from "@assets/svg";
 
 const { SwapIcon, SwapIconWhite, PlusIcon } = Svg;
 
@@ -18,10 +19,19 @@ type CardProps = {
     variant: "default" | "secondary";
     amount: string;
 };
+type BalanceCardProps = {
+    title: string;
+    amount?: number | string;
+    bordered?: boolean;
+};
 
-export const Card = ({ amount, variant = "default" }: CardProps) => {
+type EmptyCardprops = {
+    title?: string;
+};
+
+export const Card = ({ variant, amount }: CardProps) => {
     return (
-        <CardContainer $variant={variant}>
+        <CardContainer data-component={"Card"} $variant={variant}>
             <CardTop>
                 <div>
                     <CoinValue variant="heading6" weight="semibold" $containerVariant={variant}>
@@ -71,15 +81,31 @@ export const Card = ({ amount, variant = "default" }: CardProps) => {
         </CardContainer>
     );
 };
-export const EmptyCard = () => {
+
+export const EmptyCard = ({ title }: EmptyCardprops) => {
     return (
-        <EmptyCardContainer>
+        <EmptyCardContainer data-component={"EmptyCardContainer"}>
             <FlipButton>
                 <Image src={PlusIcon} width={24} height={24} alt={"add assets icon"} />
             </FlipButton>
-            <Text variant="body4" weight="medium">
-                New Asset
+            <Text variant="body4" weight="medium" font={"mono"}>
+                {title}
             </Text>
         </EmptyCardContainer>
+    );
+};
+
+export const BalanceCard = ({ amount, title, bordered = true }: BalanceCardProps) => {
+    return (
+        <BalanceCardContainer data-component={"BalanceCardContainer"} $noBorder={!bordered}>
+            <Text variant={"body2"} weight={"medium"} font={"mono"}>
+                {title}
+            </Text>
+            <div>
+                <Text variant={"body2"} font={"mono"}>
+                    {amount}
+                </Text>
+            </div>
+        </BalanceCardContainer>
     );
 };

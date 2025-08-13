@@ -21,6 +21,7 @@ export interface PropsWithStyle {
     style?: React.CSSProperties;
 }
 
+type FontProps = "geist" | "onest" | "sans" | "mono";
 interface PropsWithChildren {
     children: ReactNode;
 }
@@ -33,7 +34,7 @@ type TextProps = PropsWithChildren &
          * specify a color
          */
         color?: string;
-        font?: "bio" | "reg";
+        font?: "geist" | "onest" | "sans" | "mono";
 
         /**
          * specify the font-size
@@ -173,57 +174,43 @@ const variantOptionsMobile = (variant: TextVariants, theme: DefaultTheme) =>
 const weightOptions = (variant: Weights, theme: DefaultTheme) =>
     ({
         bold: `
-            font-family: ${theme.fontFamily.bold} !important;
+            
             font-weight: ${theme.fontWeights[variant]};
         `,
         semibold: `
-            font-family: ${theme.fontFamily.semibold} !important;
             font-weight: ${theme.fontWeights[variant]};
         `,
         medium: `
-            font-family : ${theme.fontFamily.medium} !important;
             font-weight: ${theme.fontWeights[variant]};
         `,
         regular: `
-            font-family: ${theme.fontFamily.regular} !important;
+            
             font-weight: ${theme.fontWeights[variant]};
         `,
     }[variant]);
 
-const generateFont = (variant: Weights, theme: DefaultTheme) =>
+const generateFont = (variant: FontProps, theme: DefaultTheme) =>
     ({
-        bold: `
-		font-family: ${theme.fontFamily.bioBold} !important;
-		font-weight: ${theme.fontWeights[variant]};
-	`,
-        semibold: `
-		font-family: ${theme.fontFamily.bioSM} !important;
-		font-weight: ${theme.fontWeights[variant]};
-	`,
-        medium: `
-		font-family : ${theme.fontFamily.bioMd} !important;
-		font-weight: ${theme.fontWeights[variant]};
-	`,
-        regular: `
-		font-family: ${theme.fontFamily.bio} !important;
-		font-weight: ${theme.fontWeights[variant]};
-	`,
+        onest: `font-family: ${theme.fontFamily.onest} !important;`,
+        mono: `font-family : ${theme.fontFamily.mono} !important;`,
+        sans: `font-family: ${theme.fontFamily.sans} !important;`,
+        geist: `font-family: ${theme.fontFamily.geist} !important;`,
     }[variant]);
 
 export const StyledText = styled.span<{
     align?: "left" | "center" | "right";
     $block?: boolean;
     color?: string;
-    font?: "bio" | "reg";
+    $font?: TextProps["font"];
     variant: TextVariants;
     $weight?: Weights;
 }>`
     color: ${({ theme, color }) => color ?? theme.colors.text};
     ${({ variant, theme }) => variantOptions(variant, theme)}
-    ${({ $weight, font, theme }) =>
-        $weight ? (font === "bio" ? generateFont($weight, theme) : weightOptions($weight, theme)) : null}
+    ${({ $font, theme }) => ($font ? generateFont($font, theme) : theme.fontFamily.sans)};
     display: ${({ $block }) => ($block ? "block" : "inline-block")};
     text-align: ${({ align }) => align ?? "left"};
+    ${({ theme, $weight }) => ($weight ? weightOptions($weight, theme) : 400)};
     ${({ theme }) => theme.media.mobile} {
         ${({ variant, theme }) => variantOptionsMobile(variant, theme)}
     }
@@ -234,7 +221,7 @@ export const Text = ({
     block,
     color,
     children,
-    font = "reg",
+    font = "sans",
     style,
     variant,
     weight = "regular",
@@ -243,10 +230,10 @@ export const Text = ({
     return (
         <StyledText
             align={align}
-            $block={block}
             color={color}
-            font={font}
             variant={variant}
+            $block={block}
+            $font={font}
             $weight={weight}
             style={style}
             {...rest}

@@ -92,7 +92,7 @@ export const SidebarMenuItem = styled.div<{ $active: boolean }>`
     margin-bottom: 1.5rem;
     color: ${({ theme, $active }) => ($active ? theme.colors.text : theme.colors.muted)} !important;
     text-decoration: none;
-    font-family: ${({ theme }) => theme.fontFamily.medium};
+    font-family: ${({ theme }) => theme.fontFamily.onest};
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -159,6 +159,7 @@ export const ProfileFooter = styled.div`
 export const StyledTopNav = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem 3rem;
     flex-wrap: wrap;
     ${({ theme }) => theme.media.tablet} {

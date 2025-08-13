@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Activity from "./components/Activity";
-import Assets from "./components/Assets";
+import { Activity, Assets, Balances } from "./components/index";
 import { Loader } from "@components/core";
 
 export default function Dashboard() {
@@ -21,6 +20,7 @@ export default function Dashboard() {
 
     return (
         <>
+            <Balances />
             <Assets />
             <Activity />
         </>
