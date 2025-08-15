@@ -34,7 +34,7 @@ export const Nav = ({ mode = "light" }) => {
             </FlexContainer>
 
             <NavButtons show={showMenu}>
-                <Link href={"/dashboard"}>
+                <Link href={"/auth/signup"}>
                     <Button>Get Started</Button>
                 </Link>
             </NavButtons>
