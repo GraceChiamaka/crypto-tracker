@@ -23,6 +23,7 @@ export const FormHeading = styled.div`
 `;
 
 export const SignupContent = styled.div`
+
     @media screen and (max-width: 640px) {
         height: 100%;
         display: flex;
