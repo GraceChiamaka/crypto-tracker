@@ -1,6 +1,7 @@
 "use client";
 import { StyledThemeProvider, GlobalStyle } from "@theme/index";
 import { StoreProvider } from "./store";
+import { NotificationContextProvider } from "@context/index";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -9,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <StoreProvider>
                     <StyledThemeProvider>
                         <GlobalStyle />
-                        {children}
+                        <NotificationContextProvider>{children}</NotificationContextProvider>
                     </StyledThemeProvider>
                 </StoreProvider>
             </body>

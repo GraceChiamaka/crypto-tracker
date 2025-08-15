@@ -7,7 +7,9 @@ interface PropsWithStyle {
 
 type ButtonProps = PropsWithStyle & {
     children: ReactNode | string | number;
+    disabled?: boolean;
     onClick?: () => void;
+    type?: "submit" | "button";
 };
 
 const StyledButton = styled.button`
@@ -24,6 +26,7 @@ const StyledButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 4px;
     outline: none;
     transition: all 0.3s ease;
     font-weight: 500;
@@ -31,8 +34,15 @@ const StyledButton = styled.button`
     &:hover {
         opacity: 0.8;
     }
+    &:disabled {
+        cursor: not-allowed;
+    }
 `;
 
-export const Button = ({ children, ...rest }: ButtonProps) => {
-    return <StyledButton {...rest}>{children}</StyledButton>;
+export const Button = ({ children, type = "button", disabled, ...rest }: ButtonProps) => {
+    return (
+        <StyledButton type={type} disabled={disabled} {...rest}>
+            {children}
+        </StyledButton>
+    );
 };

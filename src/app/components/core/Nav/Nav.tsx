@@ -1,14 +1,6 @@
 "use client";
 import Link from "next/link";
-import {
-    Container,
-    NavMenu,
-    NavMenuContainer,
-    NavButtons,
-    NavMobileContainer,
-    FlexContainer,
-    MenuButton,
-} from "./style";
+import { Container, NavButtons, NavMobileContainer, FlexContainer, MenuButton } from "./style";
 
 import Image from "next/image";
 import { Button } from "../index";
@@ -28,7 +20,7 @@ export const Nav = ({ mode = "light" }) => {
                         <Image src={CloseIcon} alt={"close menu icon"} />
                     </MenuButton>
                 </NavMobileContainer>
-                <NavMenuContainer data-container={"NavMenuContainer"} show={showMenu}>
+                {/* <NavMenuContainer data-container={"NavMenuContainer"} show={showMenu}>
                     <Link href={"/"}>
                         <NavMenu>Home</NavMenu>
                     </Link>
@@ -38,7 +30,7 @@ export const Nav = ({ mode = "light" }) => {
                     <Link href={"/"}>
                         <NavMenu>Portfolio</NavMenu>
                     </Link>
-                </NavMenuContainer>
+                </NavMenuContainer> */}
             </FlexContainer>
 
             <NavButtons show={showMenu}>

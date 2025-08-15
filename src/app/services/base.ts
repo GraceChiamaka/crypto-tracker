@@ -1,17 +1,19 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-// import { CoinResponse } from "../@types/services";
 
 export const baseApi = createApi({
     reducerPath: "baseApi",
     baseQuery: fetchBaseQuery({
         baseUrl: "/api/",
     }),
-    tagTypes: ["Coins"],
+    tagTypes: ["Utils", "Auth"],
     endpoints: (builder) => ({
         listCoins: builder.query({
             query: () => "/coins",
         }),
+        getCurrencies: builder.query({
+            query: () => "/utils/currency",
+        }),
     }),
 });
 
-export const { useListCoinsQuery } = baseApi;
+export const { useListCoinsQuery, useGetCurrenciesQuery } = baseApi;

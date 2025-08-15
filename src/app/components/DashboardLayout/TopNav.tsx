@@ -9,7 +9,6 @@ const { LightModeIcon, DarkModeIcon } = Svg;
 export const TopNav = () => {
     const { mode, toggleDarkMode } = useTheme();
     const onChange = () => {
-        console.log(`switch to ${mode}`);
         toggleDarkMode();
     };
     const LightIcon = () => <Image src={LightModeIcon} width={18} height={18} alt={"light mode "} />;

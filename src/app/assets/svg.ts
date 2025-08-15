@@ -14,8 +14,7 @@ import LocationIcon from "./svg/location.svg";
 import LocationIconDark from "./svg/location.svg";
 import LogoBlack from "./svg/logo_black.svg";
 import LogoWhite from "./svg/logo_white.svg";
-import LogoTextWhite from "./svg/logo_text_white.svg";
-import LogoTextBlack from "./svg/logo_text_black.svg";
+
 import MailIcon from "./svg/mail.svg";
 import MailIconDark from "./svg/mail_dark.svg";
 import PhoneIcon from "./svg/phone.svg";
@@ -49,6 +48,8 @@ import HelpIcon from "./svg/help.svg";
 import ErrorBg1 from "./svg/error.svg";
 import WalletBg from "./svg/wallet.svg";
 
+import SignupBg from "./svg/signup.svg";
+
 export const Svg = {
     ArrowDown,
     ArrowUp,
@@ -75,8 +76,6 @@ export const Svg = {
     LocationIconDark,
     LogoBlack,
     LogoWhite,
-    LogoTextBlack,
-    LogoTextWhite,
     LogoSmall,
 
     MailIcon,
@@ -92,6 +91,7 @@ export const Svg = {
     PortfolioBG2,
 
     RealTimeBG,
+    SignupBg,
     SubscribeBG1,
     SwapIcon,
     SwapIconWhite,

@@ -16,7 +16,6 @@ export async function GET() {
             message: "Coins retrieved successfully",
         });
     } catch (error) {
-        console.log(error, "error coin list");
         return Response.json({ success: false, message: "Internal server error" }, { status: 500 });
     }
 }

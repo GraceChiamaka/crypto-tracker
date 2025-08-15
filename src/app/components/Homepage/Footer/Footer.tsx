@@ -108,7 +108,7 @@ export const Footer = () => {
                     </Text>
                     <Row gutter={{ lg: 12 }} align={"middle"}>
                         <Col xs={24} md={10} lg={16} xxl={18}>
-                            <CustomInput mode={"dark"} placeholder="Your email" />
+                            <CustomInput placeholder="Your email" />
                         </Col>
                         <Col xs={24} md={5} lg={6}>
                             <Button>Join</Button>
