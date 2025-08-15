@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const LayoutContainer = styled.div`
@@ -10,7 +9,6 @@ export const LayoutContainer = styled.div`
     overflow: hidden;
     font-family: ${({ theme }) => theme.fontFamily.onest};
 `;
-
 
 export const PageContainer = styled.div`
     display: flex;
@@ -28,8 +26,8 @@ export const SignupContent = styled.div`
     @media screen and (max-width: 640px) {
         height: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
+        margin-top: 3rem;
         .ant-row {
             width: 100%;
         }

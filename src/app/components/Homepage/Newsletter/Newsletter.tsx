@@ -67,7 +67,7 @@ export const Newsletter = () => {
                         style={{ marginTop: "1rem", marginBottom: "1rem" }}
                     >
                         <Col xs={24} md={14} lg={16} xxl={16}>
-                            <CustomInput mode={"dark"} placeholder="Enter your email" />
+                            <CustomInput placeholder="Enter your email" />
                         </Col>
                         <Col xs={24} md={6} lg={8}>
                             <Button>Sign up</Button>

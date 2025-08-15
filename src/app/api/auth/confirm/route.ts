@@ -30,17 +30,19 @@ export async function POST(req: NextRequest) {
                 { status: 400 },
             );
         }
-        const { app_metadata, identities, user_metadata, ...rest } = user;
-        return Response.json(
-            {
-                success: true,
-                message: "Your email has been confirm successfully",
-                data: { token: session?.access_token, refresh_token: session?.refresh_token, ...rest },
-            },
-            {
-                status: 200,
-            },
-        );
+        if (user) {
+            const { app_metadata, identities, user_metadata, ...rest } = user;
+            return Response.json(
+                {
+                    success: true,
+                    message: "Your email has been confirm successfully",
+                    data: { token: session?.access_token, refresh_token: session?.refresh_token, ...rest },
+                },
+                {
+                    status: 200,
+                },
+            );
+        }
     } catch (error) {
         return Response.json({ success: false, message: "Internal server error" }, { status: 500 });
     }

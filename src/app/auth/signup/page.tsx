@@ -1,13 +1,14 @@
 "use client";
 import { FormHeading, SignupContent } from "../style";
 import { Button, CustomInput, Text, PasswordInput, CustomSelect, Error, Loader } from "@components/core";
-import { Col, Form, Row, message } from "antd";
+import { Col, Form, Row } from "antd";
 import { useGetCurrenciesQuery, useSignupMutation } from "@services/index";
 import Image from "next/image";
 import { useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@src/app/store";
 import { userAction } from "@src/app/store/slices/users";
+import { useNotificationContext } from "@context/NotificationContext";
 
 type CurrencyData = {
     flag_code: string;
@@ -30,12 +31,13 @@ const Signup = () => {
         { isError: isSignupError, isLoading: isSignupLoading, isSuccess: isSignupSuccess, data: SignupData },
     ] = useSignupMutation();
     const [form] = Form.useForm();
-    const [messageApi, contextHolder] = message.useMessage();
+    const { openNotification } = useNotificationContext();
+
     const router = useRouter();
     const dispatch = useAppDispatch();
 
     const currenciesList = useMemo(() => {
-        if (Currencies) {
+        if (isSuccess && Currencies) {
             return Currencies.data.map(({ flag_code, currency, id, country_code }: CurrencyData) => ({
                 label: (
                     <div style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
@@ -56,14 +58,26 @@ const Signup = () => {
 
     useEffect(() => {
         if (isSignupError) {
-            messageApi.error("Something went wrong creating your account, please try again");
+            openNotification({
+                type: "error",
+                message: "Signup",
+                description: "Something went wrong creating your account, please try again",
+            });
         }
         if (isSignupSuccess) {
-            messageApi.success("Your account has been created successfully");
-            dispatch(userAction.setNewUserInfo({ data: SignupData.data }));
-            router.push("/auth/confirm");
+            openNotification({
+                type: "success",
+                message: "Signup",
+                description: "Your account has been created successfully",
+            });
+            handleSuccess();
         }
     }, [isSignupError, isSignupSuccess]);
+
+    const handleSuccess = () => {
+        dispatch(userAction.setNewUserInfo({ data: SignupData.data }));
+        router.push("/auth/confirm");
+    };
 
     if (isError) {
         return <Error retryLabel={"Something went wrong fetching currencies "} />;
@@ -79,7 +93,6 @@ const Signup = () => {
     if (isSuccess && currenciesList) {
         return (
             <SignupContent data-component={"SignupContent"}>
-                {contextHolder}
                 <Row justify={"center"}>
                     <Col xs={20} md={20} lg={18} xl={12} xxl={8}>
                         <FormHeading>

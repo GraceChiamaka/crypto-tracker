@@ -54,10 +54,9 @@ export const ContentContainer = styled.div`
 export const LogoMobile = styled.div`
     display: none;
     padding: ${({ theme }) => theme.spacing.double(1, 2)};
+    box-shadow: 0 2px 4px 1px rgba(125, 103, 255, 0.35);
+    cursor: pointer;
 
-    ${({ theme }) => theme.media.tablet} {
-        display: block;
-    }
     ${({ theme }) => theme.media.mobile} {
         display: block;
     }
