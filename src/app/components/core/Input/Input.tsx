@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Input, InputProps, Select, SelectProps } from "antd";
+import { Form, Input, InputProps, Select, SelectProps } from "antd";
 import type { GetProps } from "antd";
 
 type IProps = InputProps & {
@@ -120,6 +120,7 @@ export const PasswordInput = ({ ...rest }: IProps) => {
 export const CustomSelect = ({ ...rest }: ISelectProps) => {
     return <StyledSelect {...rest} />;
 };
+
 export const CustomOtp = ({ onChange, onInput, onComplete }: OTPProps & any) => {
     return (
         <StyledOtpInput>

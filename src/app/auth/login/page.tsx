@@ -1,7 +1,7 @@
 "use client";
 import { Button, Text, CustomSpin, CustomInput, PasswordInput } from "@components/core";
 import { FormHeading, SignupContent } from "../style";
-import { Col, Form, Row } from "antd";
+import { Col, Flex, Form, Row } from "antd";
 import { useLoginMutation } from "@services/auth";
 import { useRouter } from "next/navigation";
 import { useNotificationContext } from "@context/NotificationContext";
@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@src/app/store";
 import { userAction } from "@src/app/store/slices/users";
 import { LoginPayload } from "@services/types";
+import Link from "next/link";
 
 const Login = () => {
     const router = useRouter();
@@ -77,6 +78,14 @@ const Login = () => {
                                 </Col>
                             </Row>
                         </Form.Item>
+                        <Flex align={"center"} gap={4}>
+                            <Text variant={"body4"}>Don't have an account yet?</Text>
+                            <Link href={"/auth/signup"}>
+                                <Text variant={"body4"} weight="semibold" font={"mono"}>
+                                    Sign up
+                                </Text>
+                            </Link>
+                        </Flex>
                     </Form>
                 </Col>
             </Row>

@@ -1,7 +1,7 @@
 "use client";
 import { FormHeading, SignupContent } from "../style";
 import { Button, CustomInput, Text, PasswordInput, CustomSelect, Error, Loader } from "@components/core";
-import { Col, Form, Row } from "antd";
+import { Col, Flex, Form, Row } from "antd";
 import { useGetCurrenciesQuery, useSignupMutation } from "@services/index";
 import Image from "next/image";
 import { useMemo, useEffect } from "react";
@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@src/app/store";
 import { userAction } from "@src/app/store/slices/users";
 import { useNotificationContext } from "@context/NotificationContext";
+import Link from "next/link";
 
 type CurrencyData = {
     flag_code: string;
@@ -84,7 +85,7 @@ const Signup = () => {
         return <Error retryLabel={"Something went wrong fetching currencies "} />;
     }
     if (isLoading) {
-        return <Loader />;
+        return <Loader transparent />;
     }
 
     const handleSubmit = (values: SignupValues) => {
@@ -99,6 +100,9 @@ const Signup = () => {
                         <FormHeading>
                             <Text variant={"heading3"} font="geist">
                                 SIGNUP
+                            </Text>
+                            <Text variant={"body3"} font={"mono"}>
+                                Fill the form to create an account
                             </Text>
                         </FormHeading>
 
@@ -130,7 +134,7 @@ const Signup = () => {
                             </Form.Item>
 
                             <Form.Item
-                                label={"Currency"}
+                                label={"Local currency"}
                                 name={"currency"}
                                 rules={[{ required: true, message: "Please select your currency " }]}
                             >
@@ -154,6 +158,14 @@ const Signup = () => {
                                     Submit
                                 </Button>
                             </Form.Item>
+                            <Flex align="center" gap={4}>
+                                <Text variant="body4">Already have an account?</Text>
+                                <Link href={"/auth/login"}>
+                                    <Text variant="body4" weight="semibold" font={"mono"}>
+                                        Sign in
+                                    </Text>
+                                </Link>
+                            </Flex>
                         </Form>
                     </Col>
                 </Row>

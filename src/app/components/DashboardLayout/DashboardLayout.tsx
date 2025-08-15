@@ -7,7 +7,7 @@ import { Sidebar } from "./Sidebar";
 import { Loader } from "@components/core";
 import { DashboardContent } from "./DashboardContent";
 
-export const StyledLayout = ({ children }: { children: ReactNode }) => {
+export const StyledLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
