@@ -1,0 +1,87 @@
+"use client";
+import { Button, Text, CustomSpin, CustomInput, PasswordInput } from "@components/core";
+import { FormHeading, SignupContent } from "../style";
+import { Col, Form, Row } from "antd";
+import { useLoginMutation } from "@services/auth";
+import { useRouter } from "next/navigation";
+import { useNotificationContext } from "@context/NotificationContext";
+import { useEffect } from "react";
+import { useAppDispatch } from "@src/app/store";
+import { userAction } from "@src/app/store/slices/users";
+import { LoginPayload } from "@services/types";
+
+const Login = () => {
+    const router = useRouter();
+    const { openNotification } = useNotificationContext();
+    const dispatch = useAppDispatch();
+
+    const [login, { isLoading, isError, error, isSuccess, data: LoginData }] = useLoginMutation();
+
+    useEffect(() => {
+        if (isError) {
+            const err = error && "data" in error && (error as any).data?.message && (error as any).data.message;
+            openNotification({
+                type: "error",
+                message: "Login",
+                description: err ?? "Something went wrong",
+            });
+        }
+        if (isSuccess) {
+            openNotification({
+                type: "success",
+                message: "Login",
+                description: "Login successfull",
+            });
+            handleSuccess();
+        }
+    }, [isError, isSuccess, error]);
+
+    const handleSuccess = () => {
+        dispatch(userAction.setVerifiedUser({ data: LoginData.data }));
+        router.push("/dashboard");
+    };
+    const handleLogin = (values: LoginPayload) => {
+        login(values);
+    };
+
+    console.log(error);
+    return (
+        <SignupContent data-component={"ConfirmEmail"}>
+            <Row justify={"center"}>
+                <Col xs={20} md={20} lg={18} xl={12} xxl={8}>
+                    <FormHeading>
+                        <Text variant={"heading4"} weight="medium" font="geist" block>
+                            Login
+                        </Text>
+                        <Text variant={"body4"} font="mono">
+                            Please enter your login details
+                        </Text>
+                    </FormHeading>
+                    <Form layout="vertical" initialValues={{ email: "", password: "" }} onFinish={handleLogin}>
+                        <Form.Item label={"Email"} rules={[{ required: true, message: "Please enter your email" }]}>
+                            <CustomInput />
+                        </Form.Item>
+                        <Form.Item
+                            label={"Password"}
+                            rules={[{ required: true, message: "Please enter your password" }]}
+                        >
+                            <PasswordInput />
+                        </Form.Item>
+
+                        <Form.Item>
+                            <Row>
+                                <Col xs={24} md={14} xl={14}>
+                                    <Button type={"submit"} disabled={isLoading}>
+                                        Continue {isLoading && <CustomSpin />}
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </Form.Item>
+                    </Form>
+                </Col>
+            </Row>
+        </SignupContent>
+    );
+};
+
+export default Login;

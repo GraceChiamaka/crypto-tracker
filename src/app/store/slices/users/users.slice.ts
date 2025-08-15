@@ -13,7 +13,7 @@ const initialState: UserState = {
     email: "",
     isLoggedIn: false,
     newUser: {},
-    verifiedUser: {},
+    verifiedUser: null,
 };
 
 const userSlice = createSlice({

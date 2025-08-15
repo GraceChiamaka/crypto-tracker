@@ -6,6 +6,7 @@ import { Loader } from "@components/core";
 
 export default function Dashboard() {
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         if (window !== undefined && document.readyState === "complete") {
             setLoading(false);
@@ -16,7 +17,9 @@ export default function Dashboard() {
         }
     }, []);
 
-    if (loading) return <Loader fullWidth />;
+    if (loading) {
+        return <Loader data-component={"dashboard loading"} fullWidth />;
+    }
 
     return (
         <>

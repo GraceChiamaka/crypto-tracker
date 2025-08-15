@@ -28,7 +28,7 @@ const Signup = () => {
     const { isError, isLoading, isSuccess, data: Currencies } = useGetCurrenciesQuery("");
     const [
         signup,
-        { isError: isSignupError, isLoading: isSignupLoading, isSuccess: isSignupSuccess, data: SignupData },
+        { isError: isSignupError, isLoading: isSignupLoading, isSuccess: isSignupSuccess, data: SignupData, error },
     ] = useSignupMutation();
     const [form] = Form.useForm();
     const { openNotification } = useNotificationContext();
@@ -58,10 +58,11 @@ const Signup = () => {
 
     useEffect(() => {
         if (isSignupError) {
+            const err = error && "data" in error && (error as any).data?.message && (error as any).data.message;
             openNotification({
                 type: "error",
                 message: "Signup",
-                description: "Something went wrong creating your account, please try again",
+                description: err ?? "Something went wrong creating your account, please try again",
             });
         }
         if (isSignupSuccess) {
