@@ -9,3 +9,7 @@ export type ConfirmEmailPayload = {
     email: string;
     token: string;
 };
+export type LoginPayload = {
+    email: string;
+    password: string;
+};

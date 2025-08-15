@@ -27,10 +27,11 @@ const Confirm = () => {
             handleSuccess();
         }
         if (isError) {
+            const err = error && "data" in error && (error as any).data?.message && (error as any).data.message;
             openNotification({
                 type: "error",
                 message: "Confirm email",
-                description: `Something went wrong with confirmation ${error ?? ""}`,
+                description: err ?? "Something went wrong with confirmation",
             });
         }
     }, [isError, isSuccess]);
@@ -52,7 +53,7 @@ const Confirm = () => {
             <Row justify={"center"}>
                 <Col xs={20} md={20} lg={18} xl={12} xxl={8}>
                     <FormHeading>
-                        <Text variant={"heading4"} weight="medium" font="geist">
+                        <Text variant={"heading4"} weight="medium" font="geist" block>
                             Enter verification code from email
                         </Text>
                         <Text variant={"body4"} font="mono">
