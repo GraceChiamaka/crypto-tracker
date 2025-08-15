@@ -10,7 +10,8 @@ export default function DashboardLayout({
 }>) {
     const { verifiedUser } = useSelector((state) => state.user);
     const router = useRouter();
-    if (verifiedUser === null) {
+
+    if (verifiedUser === null || !verifiedUser) {
         router.push("/auth/login");
         return <Loader fullWidth transparent />;
     }
