@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import styled from "styled-components";
 
 const Container = styled.div<{ $fullWidth: boolean; $transparent?: boolean }>`
@@ -47,6 +48,12 @@ const Container = styled.div<{ $fullWidth: boolean; $transparent?: boolean }>`
     }
 `;
 
+const StyledSpin = styled(Spin)`
+    .ant-spin-dot-item {
+        background: ${({ theme }) => theme.colors.white};
+    }
+`;
+
 type LoaderProps = {
     fullWidth?: boolean;
     transparent?: boolean;
@@ -63,4 +70,7 @@ export const Loader = ({ fullWidth = false, transparent }: LoaderProps) => {
             </div>
         </Container>
     );
+};
+export const CustomSpin = () => {
+    return <StyledSpin spinning />;
 };
