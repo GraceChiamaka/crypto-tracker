@@ -15,6 +15,7 @@ const Login = () => {
     const router = useRouter();
     const { openNotification } = useNotificationContext();
     const dispatch = useAppDispatch();
+    const [form] = Form.useForm();
 
     const [login, { isLoading, isError, error, isSuccess, data: LoginData }] = useLoginMutation();
 
@@ -45,7 +46,6 @@ const Login = () => {
         login(values);
     };
 
-    console.log(error);
     return (
         <SignupContent data-component={"ConfirmEmail"}>
             <Row justify={"center"}>
@@ -58,12 +58,23 @@ const Login = () => {
                             Please enter your login details
                         </Text>
                     </FormHeading>
-                    <Form layout="vertical" initialValues={{ email: "", password: "" }} onFinish={handleLogin}>
-                        <Form.Item label={"Email"} rules={[{ required: true, message: "Please enter your email" }]}>
+                    <Form
+                        layout="vertical"
+                        initialValues={{ email: "", password: "" }}
+                        onFinish={handleLogin}
+                        requiredMark={false}
+                        form={form}
+                    >
+                        <Form.Item
+                            label={"Email"}
+                            name={"email"}
+                            rules={[{ required: true, message: "Please enter your email" }]}
+                        >
                             <CustomInput />
                         </Form.Item>
                         <Form.Item
                             label={"Password"}
+                            name={"password"}
                             rules={[{ required: true, message: "Please enter your password" }]}
                         >
                             <PasswordInput />
