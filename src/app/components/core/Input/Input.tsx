@@ -85,7 +85,8 @@ const StyledSelect = styled(Select)`
 const StyledOtpInput = styled.div`
     margin-bottom: 2rem;
     .ant-otp {
-        column-gap: 1rem;
+        display: flex;
+        justify-content: space-between;
     }
     .ant-otp-input {
         height: ${({ theme }) => theme.spacing["4xl"]} !important;
