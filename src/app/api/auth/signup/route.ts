@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
         const { email, password, full_name, currency } = body;
 
         if (!email || !full_name || !password) {
-            return Response.json({ error: "Incomplete signup details" }, { status: 400 });
+            return Response.json({ message: "Incomplete signup details" }, { status: 400 });
         }
         const data = {
             email,

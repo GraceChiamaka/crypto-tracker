@@ -51,7 +51,7 @@ const Confirm = () => {
     return (
         <SignupContent data-component={"ConfirmEmail"}>
             <Row justify={"center"}>
-                <Col xs={20} md={20} lg={18} xl={12} xxl={8}>
+                <Col xs={20} md={20} lg={18} xl={10} xxl={8}>
                     <FormHeading>
                         <Text variant={"heading4"} weight="medium" font="geist" block>
                             Enter verification code from email
@@ -61,11 +61,7 @@ const Confirm = () => {
                         </Text>
                     </FormHeading>
                     <CustomOtp onInput={handleInputComplete} />
-                    <Row>
-                        <Col xs={24} md={14} xl={14}>
-                            <Button disabled={true}>Continue {isLoading && <CustomSpin />}</Button>
-                        </Col>
-                    </Row>
+                    <Button disabled={true}>Continue {isLoading && <CustomSpin />}</Button>
                 </Col>
             </Row>
         </SignupContent>

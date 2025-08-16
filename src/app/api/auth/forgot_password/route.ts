@@ -1,26 +1,17 @@
-import { VerifyOtpParams } from "@supabase/supabase-js";
 import { createClient } from "@utils/supabase/server";
 import { NextRequest } from "next/server";
+const reset_url = "https://www.cyphyr.co/auth/reset_password";
 
 export async function POST(req: NextRequest) {
     try {
         const supabase = await createClient();
         const body = await req.json();
-        const { token, email } = body;
+        const { email } = body;
 
-        if (!token || !email) {
-            return Response.json({ message: "Please input valid confirmation code" }, { status: 400 });
+        if (!email) {
+            return Response.json({ message: "Please input your email" }, { status: 400 });
         }
-        const params: VerifyOtpParams = {
-            token,
-            type: "email",
-            email,
-        };
-        const {
-            error,
-            data: { session, user },
-        } = await supabase.auth.verifyOtp(params);
-
+        const { error, data } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: reset_url });
         if (error) {
             return Response.json(
                 {
@@ -30,13 +21,11 @@ export async function POST(req: NextRequest) {
                 { status: 400 },
             );
         }
-        if (user) {
-            const { app_metadata, identities, user_metadata, ...rest } = user;
+        if (data) {
             return Response.json(
                 {
                     success: true,
-                    message: "Your email has been confirm successfully",
-                    data: { token: session?.access_token, refresh_token: session?.refresh_token, ...rest },
+                    message: "Reset email sent successfully",
                 },
                 {
                     status: 200,
@@ -44,6 +33,7 @@ export async function POST(req: NextRequest) {
             );
         }
     } catch (error) {
+        console.log(error);
         return Response.json({ success: false, message: "Internal server error" }, { status: 500 });
     }
 }

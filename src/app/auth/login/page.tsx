@@ -81,21 +81,26 @@ const Login = () => {
                         </Form.Item>
 
                         <Form.Item>
-                            <Row>
-                                <Col xs={24} md={14} xl={14}>
-                                    <Button type={"submit"} disabled={isLoading}>
-                                        Continue {isLoading && <CustomSpin />}
-                                    </Button>
-                                </Col>
-                            </Row>
+                            <Button type={"submit"} disabled={isLoading}>
+                                Continue {isLoading && <CustomSpin />}
+                            </Button>
                         </Form.Item>
-                        <Flex align={"center"} gap={4}>
-                            <Text variant={"body4"}>Don't have an account yet?</Text>
-                            <Link href={"/auth/signup"}>
-                                <Text variant={"body4"} weight="semibold" font={"mono"}>
-                                    Sign up
-                                </Text>
-                            </Link>
+                        <Flex align="center" justify="space-between">
+                            <Flex align={"center"} gap={4}>
+                                <Text variant={"body4"}>Don't have an account yet?</Text>
+                                <Link href={"/auth/signup"}>
+                                    <Text variant={"body4"} weight="semibold" font={"mono"}>
+                                        Sign up
+                                    </Text>
+                                </Link>
+                            </Flex>
+                            <Flex>
+                                <Link href={"/auth/forgot_password"}>
+                                    <Text variant={"body4"} weight="semibold" font={"mono"}>
+                                        Forgot Password?
+                                    </Text>
+                                </Link>
+                            </Flex>
                         </Flex>
                     </Form>
                 </Col>
